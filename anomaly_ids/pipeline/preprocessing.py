@@ -17,14 +17,14 @@ class Preprocessor:
             max_categories: Max unique values to consider a column categorical (default: 50)
         """
         self.categorical_cols = categorical_cols  # Will be auto-detected if None
-        self.label_cols = label_cols or ["attack_class", "attack_class_category", "label"]
+        self.label_cols = label_cols or ["attack_class", "attack_class_category", "label"] # Either they will be obtained or will be set to the default KDD dataset labels
         self.max_categories = max_categories
         self.drop_cols = None
         self.training_columns = None
     
     def fit(self, df):
         """Fit on training data to learn which columns to drop and detect categorical columns"""
-        # Backward compatibility: ensure label_cols exists (for old saved models)
+        # Backward compatibility: ensure label_cols exists. Done in order so that the model does not crash while loading the default values in the pipeline
         if not hasattr(self, 'label_cols'):
             self.label_cols = ["attack_class", "attack_class_category", "label"]
         
