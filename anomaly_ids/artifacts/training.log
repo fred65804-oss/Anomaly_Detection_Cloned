@@ -1,0 +1,354 @@
+2026-02-10 12:20:51 - training - INFO - ======================================================================
+2026-02-10 12:20:51 - training - INFO - HYBRID IDS TRAINING
+2026-02-10 12:20:51 - training - INFO - ======================================================================
+2026-02-10 12:20:51 - training - INFO - 
+[1/5] Loading data...
+2026-02-10 12:20:52 - training - INFO -   Train samples: 125973
+2026-02-10 12:20:52 - training - INFO -   Test samples: 22544
+2026-02-10 12:20:52 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-10 12:20:52 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-10 12:20:52 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-10 12:20:52 - training - INFO -   Novel attacks in test: 17
+2026-02-10 12:20:52 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-10 12:20:52 - training - INFO - 
+[3/5] Preparing features...
+2026-02-10 12:20:52 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-10 12:20:52 - training - INFO -   Train: 100778
+2026-02-10 12:20:52 - training - INFO -   Val: 25195
+2026-02-10 12:20:52 - training - INFO -   Test: 22544
+2026-02-10 12:20:52 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-10 12:27:07 - training - INFO - ======================================================================
+2026-02-10 12:27:07 - training - INFO - HYBRID IDS TRAINING
+2026-02-10 12:27:07 - training - INFO - ======================================================================
+2026-02-10 12:27:07 - training - INFO - 
+[1/5] Loading data...
+2026-02-10 12:27:07 - training - INFO -   Train samples: 125973
+2026-02-10 12:27:07 - training - INFO -   Test samples: 22544
+2026-02-10 12:27:07 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-10 12:27:07 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-10 12:27:07 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-10 12:27:07 - training - INFO -   Novel attacks in test: 17
+2026-02-10 12:27:07 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-10 12:27:07 - training - INFO - 
+[3/5] Preparing features...
+2026-02-10 12:27:07 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-10 12:27:07 - training - INFO -   Train: 100778
+2026-02-10 12:27:07 - training - INFO -   Val: 25195
+2026-02-10 12:27:07 - training - INFO -   Test: 22544
+2026-02-10 12:27:07 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-10 12:28:01 - training - INFO - 
+Saving pipeline...
+2026-02-10 12:28:01 - training - INFO - 
+======================================================================
+2026-02-10 12:28:01 - training - INFO - TRAINING COMPLETE
+2026-02-10 12:28:01 - training - INFO - ======================================================================
+2026-02-10 14:39:28 - training - INFO - ======================================================================
+2026-02-10 14:39:28 - training - INFO - HYBRID IDS TRAINING
+2026-02-10 14:39:28 - training - INFO - ======================================================================
+2026-02-10 14:39:28 - training - INFO - 
+[1/5] Loading data...
+2026-02-10 14:39:28 - training - INFO -   Train samples: 125973
+2026-02-10 14:39:28 - training - INFO -   Test samples: 22544
+2026-02-10 14:39:28 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-10 14:39:28 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-10 14:39:28 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-10 14:39:28 - training - INFO -   Novel attacks in test: 17
+2026-02-10 14:39:28 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-10 14:39:28 - training - INFO - 
+[3/5] Preparing features...
+2026-02-10 14:39:28 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-10 14:39:28 - training - INFO -   Train: 100778
+2026-02-10 14:39:28 - training - INFO -   Val: 25195
+2026-02-10 14:39:28 - training - INFO -   Test: 22544
+2026-02-10 14:39:28 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-10 14:40:45 - training - INFO - 
+Saving pipeline...
+2026-02-10 14:40:45 - training - INFO - 
+======================================================================
+2026-02-10 14:40:45 - training - INFO - TRAINING COMPLETE
+2026-02-10 14:40:45 - training - INFO - ======================================================================
+2026-02-10 16:39:10 - training - INFO - ======================================================================
+2026-02-10 16:39:10 - training - INFO - HYBRID IDS TRAINING
+2026-02-10 16:39:10 - training - INFO - ======================================================================
+2026-02-10 16:39:10 - training - INFO - 
+[1/5] Loading data...
+2026-02-10 16:39:10 - training - INFO -   Train samples: 125973
+2026-02-10 16:39:10 - training - INFO -   Test samples: 22544
+2026-02-10 16:39:10 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-10 16:39:10 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-10 16:39:10 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-10 16:39:10 - training - INFO -   Novel attacks in test: 17
+2026-02-10 16:39:10 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-10 16:39:10 - training - INFO - 
+[3/5] Preparing features...
+2026-02-10 16:39:10 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-10 16:39:10 - training - INFO -   Train: 100778
+2026-02-10 16:39:10 - training - INFO -   Val: 25195
+2026-02-10 16:39:10 - training - INFO -   Test: 22544
+2026-02-10 16:39:10 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-10 16:40:16 - training - INFO - 
+Saving pipeline...
+2026-02-10 16:40:17 - training - INFO - 
+======================================================================
+2026-02-10 16:40:17 - training - INFO - TRAINING COMPLETE
+2026-02-10 16:40:17 - training - INFO - ======================================================================
+2026-02-10 17:18:42 - training - INFO - ======================================================================
+2026-02-10 17:18:42 - training - INFO - HYBRID IDS TRAINING
+2026-02-10 17:18:42 - training - INFO - ======================================================================
+2026-02-10 17:18:42 - training - INFO - 
+[1/5] Loading data...
+2026-02-10 17:18:43 - training - INFO -   Train samples: 125973
+2026-02-10 17:18:43 - training - INFO -   Test samples: 22544
+2026-02-10 17:18:43 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-10 17:18:43 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-10 17:18:43 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-10 17:18:43 - training - INFO -   Novel attacks in test: 17
+2026-02-10 17:18:43 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-10 17:18:43 - training - INFO - 
+[3/5] Preparing features...
+2026-02-10 17:18:43 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-10 17:18:43 - training - INFO -   Train: 100778
+2026-02-10 17:18:43 - training - INFO -   Val: 25195
+2026-02-10 17:18:43 - training - INFO -   Test: 22544
+2026-02-10 17:18:43 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-10 17:19:58 - training - INFO - 
+Saving pipeline...
+2026-02-10 17:19:58 - training - INFO - 
+======================================================================
+2026-02-10 17:19:58 - training - INFO - TRAINING COMPLETE
+2026-02-10 17:19:58 - training - INFO - ======================================================================
+2026-02-12 17:29:19 - training - INFO - ======================================================================
+2026-02-12 17:29:19 - training - INFO - HYBRID IDS TRAINING
+2026-02-12 17:29:19 - training - INFO - ======================================================================
+2026-02-12 17:29:19 - training - INFO - 
+[1/5] Loading data...
+2026-02-12 17:29:20 - training - INFO -   Train samples: 125973
+2026-02-12 17:29:20 - training - INFO -   Test samples: 22544
+2026-02-12 17:29:20 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-12 17:29:20 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-12 17:29:20 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-12 17:29:20 - training - INFO -   Novel attacks in test: 17
+2026-02-12 17:29:20 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-12 17:29:20 - training - INFO - 
+[3/5] Preparing features...
+2026-02-12 17:29:20 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-12 17:29:20 - training - INFO -   Train: 100778
+2026-02-12 17:29:20 - training - INFO -   Val: 25195
+2026-02-12 17:29:20 - training - INFO -   Test: 22544
+2026-02-12 17:29:20 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-12 17:30:55 - training - INFO - ======================================================================
+2026-02-12 17:30:55 - training - INFO - HYBRID IDS TRAINING
+2026-02-12 17:30:55 - training - INFO - ======================================================================
+2026-02-12 17:30:55 - training - INFO - 
+[1/5] Loading data...
+2026-02-12 17:30:55 - training - INFO -   Train samples: 125973
+2026-02-12 17:30:55 - training - INFO -   Test samples: 22544
+2026-02-12 17:30:55 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-12 17:30:55 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-12 17:30:55 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-12 17:30:55 - training - INFO -   Novel attacks in test: 17
+2026-02-12 17:30:55 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-12 17:30:55 - training - INFO - 
+[3/5] Preparing features...
+2026-02-12 17:30:55 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-12 17:30:55 - training - INFO -   Train: 100778
+2026-02-12 17:30:55 - training - INFO -   Val: 25195
+2026-02-12 17:30:55 - training - INFO -   Test: 22544
+2026-02-12 17:30:55 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-12 17:31:48 - training - INFO - 
+Saving pipeline...
+2026-02-12 17:31:48 - training - INFO - 
+======================================================================
+2026-02-12 17:31:48 - training - INFO - TRAINING COMPLETE
+2026-02-12 17:31:48 - training - INFO - ======================================================================
+2026-02-12 17:49:21 - training - INFO - ======================================================================
+2026-02-12 17:49:21 - training - INFO - HYBRID IDS TRAINING
+2026-02-12 17:49:21 - training - INFO - ======================================================================
+2026-02-12 17:49:21 - training - INFO - 
+[1/5] Loading data...
+2026-02-12 17:49:21 - training - INFO -   Train samples: 125973
+2026-02-12 17:49:21 - training - INFO -   Test samples: 22544
+2026-02-12 17:49:21 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-12 17:49:21 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-12 17:49:21 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-12 17:49:21 - training - INFO -   Novel attacks in test: 17
+2026-02-12 17:49:21 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-12 17:49:21 - training - INFO - 
+[3/5] Preparing features...
+2026-02-12 17:49:21 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-12 17:49:21 - training - INFO -   Train: 100778
+2026-02-12 17:49:21 - training - INFO -   Val: 25195
+2026-02-12 17:49:21 - training - INFO -   Test: 22544
+2026-02-12 17:49:21 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-12 17:50:10 - training - INFO - 
+Saving pipeline...
+2026-02-12 17:50:11 - training - INFO - 
+======================================================================
+2026-02-12 17:50:11 - training - INFO - TRAINING COMPLETE
+2026-02-12 17:50:11 - training - INFO - ======================================================================
+2026-02-12 17:56:57 - training - INFO - ======================================================================
+2026-02-12 17:56:57 - training - INFO - HYBRID IDS TRAINING
+2026-02-12 17:56:57 - training - INFO - ======================================================================
+2026-02-12 17:56:57 - training - INFO - 
+[1/5] Loading data...
+2026-02-12 17:56:57 - training - INFO -   Train samples: 125973
+2026-02-12 17:56:57 - training - INFO -   Test samples: 22544
+2026-02-12 17:56:57 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-12 17:56:57 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-12 17:56:57 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-12 17:56:57 - training - INFO -   Novel attacks in test: 17
+2026-02-12 17:56:57 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-12 17:56:57 - training - INFO - 
+[3/5] Preparing features...
+2026-02-12 17:56:57 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-12 17:56:57 - training - INFO -   Train: 100778
+2026-02-12 17:56:57 - training - INFO -   Val: 25195
+2026-02-12 17:56:57 - training - INFO -   Test: 22544
+2026-02-12 17:56:57 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-12 17:57:56 - training - INFO - 
+Saving pipeline...
+2026-02-12 17:57:57 - training - INFO - 
+======================================================================
+2026-02-12 17:57:57 - training - INFO - TRAINING COMPLETE
+2026-02-12 17:57:57 - training - INFO - ======================================================================
+2026-02-12 18:06:59 - training - INFO - ======================================================================
+2026-02-12 18:06:59 - training - INFO - HYBRID IDS TRAINING
+2026-02-12 18:06:59 - training - INFO - ======================================================================
+2026-02-12 18:06:59 - training - INFO - 
+[1/5] Loading data...
+2026-02-12 18:07:00 - training - INFO -   Train samples: 125973
+2026-02-12 18:07:00 - training - INFO -   Test samples: 22544
+2026-02-12 18:07:00 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-12 18:07:00 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-12 18:07:00 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-12 18:07:00 - training - INFO -   Novel attacks in test: 17
+2026-02-12 18:07:00 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-12 18:07:00 - training - INFO - 
+[3/5] Preparing features...
+2026-02-12 18:07:00 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-12 18:07:00 - training - INFO -   Train: 100778
+2026-02-12 18:07:00 - training - INFO -   Val: 25195
+2026-02-12 18:07:00 - training - INFO -   Test: 22544
+2026-02-12 18:07:00 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-12 18:07:52 - training - INFO - 
+Saving pipeline...
+2026-02-12 18:07:52 - training - INFO - 
+======================================================================
+2026-02-12 18:07:52 - training - INFO - TRAINING COMPLETE
+2026-02-12 18:07:52 - training - INFO - ======================================================================
+2026-02-16 10:55:45 - training - INFO - ======================================================================
+2026-02-16 10:55:45 - training - INFO - HYBRID IDS TRAINING
+2026-02-16 10:55:45 - training - INFO - ======================================================================
+2026-02-16 10:55:45 - training - INFO - 
+[1/5] Loading data...
+2026-02-16 10:55:46 - training - INFO -   Train samples: 125973
+2026-02-16 10:55:46 - training - INFO -   Test samples: 22544
+2026-02-16 10:55:46 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-16 10:55:46 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-16 10:55:46 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-16 10:55:46 - training - INFO -   Novel attacks in test: 17
+2026-02-16 10:55:46 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-16 10:55:46 - training - INFO - 
+[3/5] Preparing features...
+2026-02-16 10:55:46 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-16 10:55:46 - training - INFO -   Train: 100778
+2026-02-16 10:55:46 - training - INFO -   Val: 25195
+2026-02-16 10:55:46 - training - INFO -   Test: 22544
+2026-02-16 10:55:46 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-16 10:58:02 - training - INFO - 
+Saving pipeline...
+2026-02-16 10:58:03 - training - INFO - 
+======================================================================
+2026-02-16 10:58:03 - training - INFO - TRAINING COMPLETE
+2026-02-16 10:58:03 - training - INFO - ======================================================================
+2026-02-17 11:13:04 - training - INFO - ======================================================================
+2026-02-17 11:13:04 - training - INFO - HYBRID IDS TRAINING
+2026-02-17 11:13:04 - training - INFO - ======================================================================
+2026-02-17 11:13:04 - training - INFO - 
+[1/5] Loading data...
+2026-02-17 11:13:04 - training - INFO -   Train samples: 125973
+2026-02-17 11:13:04 - training - INFO -   Test samples: 22544
+2026-02-17 11:13:04 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-17 11:13:04 - training - INFO -   Using label column: 'attack_class' (normal class: 'normal')
+2026-02-17 11:13:05 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-17 11:13:05 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-17 11:13:05 - training - INFO -   Novel attacks in test: 17
+2026-02-17 11:13:05 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-17 11:13:05 - training - INFO - 
+[3/5] Preparing features...
+2026-02-17 11:13:05 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-17 11:13:05 - training - INFO -   Train: 100778
+2026-02-17 11:13:05 - training - INFO -   Val: 25195
+2026-02-17 11:13:05 - training - INFO -   Test: 22544
+2026-02-17 11:13:05 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-17 11:14:27 - training - INFO - 
+Saving pipeline...
+2026-02-17 11:14:28 - training - INFO - 
+======================================================================
+2026-02-17 11:14:28 - training - INFO - TRAINING COMPLETE
+2026-02-17 11:14:28 - training - INFO - ======================================================================
+2026-02-17 11:17:54 - training - INFO - ======================================================================
+2026-02-17 11:17:54 - training - INFO - HYBRID IDS TRAINING
+2026-02-17 11:17:54 - training - INFO - ======================================================================
+2026-02-17 11:17:54 - training - INFO - 
+[1/5] Loading data...
+2026-02-17 11:17:54 - training - INFO -   Train samples: 125973
+2026-02-17 11:17:54 - training - INFO -   Test samples: 22544
+2026-02-17 11:17:54 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-17 11:17:54 - training - INFO -   Using label column: 'attack_class' (normal class: 'normal')
+2026-02-17 11:17:54 - training - INFO -   Train intrusions: 58630 (46.5%)
+2026-02-17 11:17:54 - training - INFO -   Test intrusions: 12833 (56.9%)
+2026-02-17 11:17:54 - training - INFO -   Novel attacks in test: 17
+2026-02-17 11:17:54 - training - INFO -   Novel attack types: ['apache2', 'httptunnel', 'mailbomb', 'mscan', 'named', 'processtable', 'ps', 'saint', 'sendmail', 'snmpgetattack', 'snmpguess', 'sqlattack', 'udpstorm', 'worm', 'xlock', 'xsnoop', 'xterm']
+2026-02-17 11:17:54 - training - INFO - 
+[3/5] Preparing features...
+2026-02-17 11:17:54 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-17 11:17:54 - training - INFO -   Train: 100778
+2026-02-17 11:17:54 - training - INFO -   Val: 25195
+2026-02-17 11:17:54 - training - INFO -   Test: 22544
+2026-02-17 11:17:54 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-17 11:19:20 - training - INFO - 
+Saving pipeline...
+2026-02-17 11:19:20 - training - INFO - 
+======================================================================
+2026-02-17 11:19:20 - training - INFO - TRAINING COMPLETE
+2026-02-17 11:19:20 - training - INFO - ======================================================================

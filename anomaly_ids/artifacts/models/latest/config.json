@@ -1,0 +1,11 @@
+{
+  "use_autoencoder": true,
+  "use_pca_features": true,
+  "anomaly_detectors": [
+    "isolation_forest",
+    "lof"
+  ],
+  "supervised_weight": 0.4,
+  "ensemble_method": "max",
+  "optimize_weights": true
+}
