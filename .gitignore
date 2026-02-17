@@ -1,0 +1,38 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Model artifacts (optional - uncomment if you don't want to track trained models)
+# *.joblib
+# *.keras
+# *.h5
+# *.weights.h5
+
+# Logs
+*.log
+training.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git LFS
+.gitattributes
