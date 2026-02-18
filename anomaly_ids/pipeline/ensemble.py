@@ -69,7 +69,7 @@ def optimize_supervised_weight(sup_probs_val, anomaly_scores_val, y_val,
                                method='max', optimize_for='f1',
                                min_recall=0.90):
     """
-    Optimize supervised weight using validation set
+    Optimizing supervised weight using validation set
     
     Args:
         sup_probs_val: Supervised probabilities on validation set
@@ -103,7 +103,7 @@ def optimize_supervised_weight(sup_probs_val, anomaly_scores_val, y_val,
         
         # Find best threshold for this weight
         for t in np.arange(threshold_min, threshold_max, threshold_step):
-            preds = (hybrid_probs >= t).astype(int)
+            preds = (hybrid_probs >= t).astype(int) # Mimicing OR gate logic
             
             # Enforce minimum recall constraint
             rec = recall_score(y_val, preds)
@@ -117,7 +117,7 @@ def optimize_supervised_weight(sup_probs_val, anomaly_scores_val, y_val,
             elif optimize_for == 'precision':
                 score = precision_score(y_val, preds)
             else:
-                score = f1_score(y_val, preds)
+                score = f1_score(y_val, preds) # By default, optimize for f1-score only
             
             if score > best_score:
                 best_score = score
@@ -125,9 +125,9 @@ def optimize_supervised_weight(sup_probs_val, anomaly_scores_val, y_val,
                 best_threshold = t
     
     # If no configuration met the min_recall constraint, fall back to
-    # optimizing recall without the floor (safety net)
+    # optimizing f1-score without the floor (safety net)
     if best_score == 0:
-        print("  ⚠ No config met min_recall constraint. Relaxing to recall-only optimization.")
+        print("No config met min_recall constraint. Relaxing to recall-only optimization.")
         for sup_weight in np.arange(weight_min, weight_max + weight_step, weight_step):
             ensemble = HybridEnsemble(supervised_weight=sup_weight, method=method)
             hybrid_probs = ensemble.predict_proba(sup_probs_val, anomaly_scores_val)

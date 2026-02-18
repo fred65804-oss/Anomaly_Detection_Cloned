@@ -62,7 +62,7 @@ class SupervisedRF:
         """
         if not self.fitted:
             raise ValueError("Model must be fitted before prediction")
-        return self.model.predict_proba(X)[:, 1]
+        return self.model.predict_proba(X)[:, 1] # Probabilities of class 1(Anomaly class)
     
     def predict(self, X):
         """

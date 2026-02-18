@@ -13,7 +13,7 @@ class AutoencoderIDS:
     """
 
     def __init__(self, input_dim: int, encoding_dim: int = 32, dropout: float = 0.2, epochs: int = 20, batch_size: int = 256): # 'Input Dimensions' will always have to be passed
-        self.input_dim = input_dim
+        self.input_dim = input_dim # Number of columns in the data
         self.encoding_dim = encoding_dim
         self.dropout = dropout
         self.epochs = epochs
@@ -22,7 +22,7 @@ class AutoencoderIDS:
         self.autoencoder = None # Combining encoding, decoding
         self.encoder = None # Only decoding
         self.history = None
-        self.weights_loaded = False  # Track if trained weights were loaded
+        self.weights_loaded = False  # Track if trained weights were loaded(Initially we will assume they were not)
 
         self._build_model()
 
@@ -32,6 +32,7 @@ class AutoencoderIDS:
 
         # Encoder
         # Suppressing the features till 32 (Model will start learning from here only, i.e at the end of encoder)
+        # These => '()'(e.g. (encoder_input), (x), etc) at the end of every layer tells which layer preceds this layer  
         x = layers.Dense(128, activation = "relu")(encoder_input) # Upscales 107 features to 128 features for neural net processing ahead
         x = layers.Dropout(self.dropout)(x)
         x = layers.Dense(64, activation = "relu")(x)
@@ -50,13 +51,14 @@ class AutoencoderIDS:
         self.autoencoder.compile(optimizer = "adam", loss = "mse")
 
         # Encoder-only Model
+        # Will be used only for returning the encoded features that are to be passed to the Supervised Model
         self.encoder = keras.Model(encoder_input, encoded)
 
     # Training the model(Fit only Normal Data)
     def fit(self, X_normal_train, X_normal_val = None, verbose = 0):
         """
             Train AutoEncoder on Normal data only (Make it learn what is normal)
-        """
+        """ 
         if X_normal_val is None:
             validation_data = None
         else:

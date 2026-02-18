@@ -10,7 +10,7 @@ def add_statistical_features(df):
     Add network-specific statistical features (only if columns exist)
     
     Note: These features are designed for network traffic data (KDD dataset).
-    They will be skipped if the required columns are not present.
+    They will be skipped if the required columns are not present. This is done so that if any other dataset is passed in future, the code will be ready to adapt to it
     """
     df = df.copy()
     
@@ -76,6 +76,7 @@ def add_context_aware_features(df):
 
     # Legitimacy score (requires: logged_in, same_srv_rate, serror_rate, dst_host_same_srv_rate, land)
     if all(col in df.columns for col in ["logged_in", "same_srv_rate", "serror_rate", "dst_host_same_srv_rate", "land"]):
+        # 'logged_in' status is given the most weight
         legitimacy_indicators = (
                 (df["logged_in"] == 1).astype(float) * 0.3 +
                 (df["same_srv_rate"] > 0.8).astype(float) * 0.2 +

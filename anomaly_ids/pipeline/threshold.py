@@ -29,7 +29,7 @@ class ThresholdOptimizer:
         self.threshold_step = threshold_step
         self.optimize_for = optimize_for
         self.default_threshold = default_threshold
-        self.best_threshold = default_threshold  # Start with the default, not 0.5
+        self.best_threshold = default_threshold  # Starting with the default
         self.best_score = 0
     
     def optimize(self, y_true, y_probs):
