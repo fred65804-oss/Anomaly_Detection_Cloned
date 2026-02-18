@@ -1,772 +1,727 @@
 {
-  "accuracy": 72.94117647058823,
-  "correct": 62,
-  "total": 85,
+  "accuracy": 92.5,
+  "correct": 74,
+  "total": 80,
   "results": [
     {
-      "name": "KDD Normal HTTP Traffic #1",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.17488459063648462,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "KDD Normal FTP_DATA Traffic #2",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.3960046772913384,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "KDD Normal SMTP Traffic #3",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.3267300636243006,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "KDD Normal PRIVATE Traffic #4",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.3863445818391305,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "KDD Normal TELNET Traffic #5",
+      "name": "UNSW Normal Traffic #1",
       "expected": "normal",
       "predicted": "intrusion",
-      "confidence": 0.5375027245938772,
+      "confidence": 0.65,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": false
     },
     {
-      "name": "KDD Normal FTP Traffic #6",
-      "expected": "normal",
-      "predicted": "intrusion",
-      "confidence": 0.7296429160816993,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": false
-    },
-    {
-      "name": "KDD Normal SSH Traffic #7",
+      "name": "UNSW Normal Traffic #2",
       "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.4870349386999198,
+      "confidence": 0.045842362548820854,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal Traffic #3",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.05086595157805426,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal Traffic #4",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.2438324986622265,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal Traffic #5",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.49690861048625223,
       "alert_level": "LOW",
       "alert_message": "Borderline Anomaly detected: Close monitoring required",
       "correct": true
     },
     {
-      "name": "KDD Normal DOMAIN_U Traffic #8",
-      "expected": "normal",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": false
-    },
-    {
-      "name": "KDD Normal POP_3 Traffic #9",
-      "expected": "normal",
-      "predicted": "intrusion",
-      "confidence": 0.7403902938255114,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": false
-    },
-    {
-      "name": "KDD Normal OTHER Traffic #10",
-      "expected": "normal",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": false
-    },
-    {
-      "name": "KDD Normal Traffic (random) #1",
+      "name": "UNSW Normal Traffic #6",
       "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.39362203733661283,
+      "confidence": 0.17616646198270744,
       "alert_level": "NORMAL",
       "alert_message": "No intrusion detected - Normal Traffic",
       "correct": true
     },
     {
-      "name": "KDD Normal Traffic (random) #2",
+      "name": "UNSW Normal Traffic #7",
       "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.22114260786658962,
+      "confidence": 0.11619416460396682,
       "alert_level": "NORMAL",
       "alert_message": "No intrusion detected - Normal Traffic",
       "correct": true
     },
     {
-      "name": "KDD Normal Traffic (random) #3",
+      "name": "UNSW Normal Traffic #8",
       "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.2903733087656286,
+      "confidence": 0.07077338381549719,
       "alert_level": "NORMAL",
       "alert_message": "No intrusion detected - Normal Traffic",
       "correct": true
     },
     {
-      "name": "KDD Normal Traffic (random) #4",
+      "name": "UNSW Normal Traffic #9",
       "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.3606344630565966,
+      "confidence": 0.047623763900414125,
       "alert_level": "NORMAL",
       "alert_message": "No intrusion detected - Normal Traffic",
       "correct": true
     },
     {
-      "name": "KDD Normal Traffic (random) #5",
+      "name": "UNSW Normal Traffic #10",
       "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.23213088613489535,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "KDD Normal Traffic (random) #6",
-      "expected": "normal",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": false
-    },
-    {
-      "name": "KDD Normal Traffic (random) #7",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.16530948098524176,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "KDD Normal Traffic (random) #8",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.37165137288299677,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "KDD Normal Traffic (random) #9",
-      "expected": "normal",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": false
-    },
-    {
-      "name": "KDD Normal Traffic (random) #10",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.44263088929172056,
+      "confidence": 0.4236115352416251,
       "alert_level": "LOW",
       "alert_message": "Borderline Anomaly detected: Close monitoring required",
       "correct": true
     },
     {
-      "name": "KDD Attack: DoS SYN Flood (neptune) #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS SYN Flood (neptune) #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8312607734515153,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS SYN Flood (neptune) #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8057816153784706,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS ICMP Flood (smurf) #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS ICMP Flood (smurf) #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS ICMP Flood (smurf) #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - Satan Scanner #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - Satan Scanner #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - Satan Scanner #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - IP Sweep #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7473298287971292,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - IP Sweep #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.5963728041084813,
-      "alert_level": "MEDIUM",
-      "alert_message": "Suspicious activity detected - Action recommended",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - IP Sweep #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - Port Sweep #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7373924064762859,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - Port Sweep #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - Port Sweep #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.758148528571586,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - Nmap Scan #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7314549556744316,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: Probe - Nmap Scan #2",
-      "expected": "intrusion",
+      "name": "UNSW Normal Traffic #11",
+      "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.473117830530862,
-      "alert_level": "LOW",
-      "alert_message": "Borderline Anomaly detected: Close monitoring required",
-      "correct": false
-    },
-    {
-      "name": "KDD Attack: Probe - Nmap Scan #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7826456168281025,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Back (Apache) #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Back (Apache) #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Back (Apache) #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Teardrop #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.6115975307120173,
-      "alert_level": "MEDIUM",
-      "alert_message": "Suspicious activity detected - Action recommended",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Teardrop #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Teardrop #3",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.4463405432001505,
-      "alert_level": "LOW",
-      "alert_message": "Borderline Anomaly detected: Close monitoring required",
-      "correct": false
-    },
-    {
-      "name": "KDD Attack: DoS - Ping of Death #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.6888466719032832,
-      "alert_level": "MEDIUM",
-      "alert_message": "Suspicious activity detected - Action recommended",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Ping of Death #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.5182900334443716,
-      "alert_level": "MEDIUM",
-      "alert_message": "Suspicious activity detected - Action recommended",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Ping of Death #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.525124887883778,
-      "alert_level": "MEDIUM",
-      "alert_message": "Suspicious activity detected - Action recommended",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: R2L - Warez Client #1",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.3958520011618783,
+      "confidence": 0.2995493160893605,
       "alert_level": "NORMAL",
       "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": false
+      "correct": true
     },
     {
-      "name": "KDD Attack: R2L - Warez Client #2",
-      "expected": "intrusion",
+      "name": "UNSW Normal Traffic #12",
+      "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.3891703669778101,
+      "confidence": 0.06361025271583312,
       "alert_level": "NORMAL",
       "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": false
-    },
-    {
-      "name": "KDD Attack: R2L - Warez Client #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
       "correct": true
     },
     {
-      "name": "KDD Attack: R2L - Password Guessing #1",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.4217755328300514,
-      "alert_level": "LOW",
-      "alert_message": "Borderline Anomaly detected: Close monitoring required",
+      "name": "UNSW Normal Traffic #13",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
       "correct": false
     },
     {
-      "name": "KDD Attack: R2L - Password Guessing #2",
-      "expected": "intrusion",
+      "name": "UNSW Normal Traffic #14",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal Traffic #15",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal Traffic #16",
+      "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.23387066260558637,
+      "confidence": 0.3323321892389835,
       "alert_level": "NORMAL",
       "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": false
+      "correct": true
     },
     {
-      "name": "KDD Attack: R2L - Password Guessing #3",
-      "expected": "intrusion",
+      "name": "UNSW Normal Traffic #17",
+      "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.39337414208389765,
+      "confidence": 0.03873022863999555,
       "alert_level": "NORMAL",
       "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal Traffic #18",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
       "correct": false
     },
     {
-      "name": "KDD Attack: U2R - Buffer Overflow #1",
-      "expected": "intrusion",
+      "name": "UNSW Normal Traffic #19",
+      "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.4320901096472484,
+      "confidence": 0.49716230143248397,
       "alert_level": "LOW",
       "alert_message": "Borderline Anomaly detected: Close monitoring required",
-      "correct": false
-    },
-    {
-      "name": "KDD Attack: U2R - Buffer Overflow #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
       "correct": true
     },
     {
-      "name": "KDD Attack: U2R - Buffer Overflow #3",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.4570387623221189,
-      "alert_level": "LOW",
-      "alert_message": "Borderline Anomaly detected: Close monitoring required",
+      "name": "UNSW Normal Traffic #20",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
       "correct": false
     },
     {
-      "name": "KDD Attack: U2R - Rootkit #1",
+      "name": "UNSW Attack: attack #1",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.5013289281756002,
+      "confidence": 0.5439591519256239,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Attack: U2R - Rootkit #2",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.4778874589240336,
-      "alert_level": "LOW",
-      "alert_message": "Borderline Anomaly detected: Close monitoring required",
-      "correct": false
-    },
-    {
-      "name": "KDD Attack: U2R - Rootkit #3",
+      "name": "UNSW Attack: attack #2",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Land Attack #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Land Attack #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: DoS - Land Attack #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.75241563539522,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: U2R - Loadmodule #1",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.4125244057132988,
-      "alert_level": "LOW",
-      "alert_message": "Borderline Anomaly detected: Close monitoring required",
-      "correct": false
-    },
-    {
-      "name": "KDD Attack: U2R - Loadmodule #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.5326330789957536,
+      "confidence": 0.5645894859944344,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Attack: U2R - Loadmodule #3",
+      "name": "UNSW Attack: attack #3",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.5667529694009303,
+      "confidence": 0.65,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Attack: R2L - FTP Write #1",
+      "name": "UNSW Attack: attack #4",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.6724605505459522,
+      "confidence": 0.65,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Attack: R2L - FTP Write #2",
+      "name": "UNSW Attack: attack #5",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: R2L - FTP Write #3",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.34098955668275693,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": false
-    },
-    {
-      "name": "KDD Attack: R2L - IMAP Attack #1",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.6379503784575292,
+      "confidence": 0.65,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Attack: R2L - IMAP Attack #2",
+      "name": "UNSW Attack: attack #6",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: R2L - IMAP Attack #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.6379503784575292,
+      "confidence": 0.5236760722285494,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Attack: R2L - Multihop #1",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.49170931565337733,
-      "alert_level": "LOW",
-      "alert_message": "Borderline Anomaly detected: Close monitoring required",
-      "correct": false
-    },
-    {
-      "name": "KDD Attack: R2L - Multihop #2",
+      "name": "UNSW Attack: attack #7",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.7385282357988097,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: R2L - Multihop #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.6742771767436407,
+      "confidence": 0.65,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Attack: R2L - Warez Master #1",
+      "name": "UNSW Attack: attack #8",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Attack: R2L - Warez Master #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.5056035572271005,
+      "confidence": 0.65,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Attack: R2L - Warez Master #3",
+      "name": "UNSW Attack: attack #9",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Novel Attack: saint",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
-      "correct": true
-    },
-    {
-      "name": "KDD Novel Attack: mscan",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.5709825917770581,
+      "confidence": 0.65,
       "alert_level": "MEDIUM",
       "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Novel Attack: apache2",
+      "name": "UNSW Attack: attack #10",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Novel Attack: snmpgetattack",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.39961881251764,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": false
-    },
-    {
-      "name": "KDD Novel Attack: processtable",
+      "name": "UNSW Attack: attack #11",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.9,
-      "alert_level": "CRITICAL",
-      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
+      "confidence": 0.5511276107636703,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Novel Attack: httptunnel",
+      "name": "UNSW Attack: attack #12",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.7549053920773107,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
+      "confidence": 0.5544396962440625,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "KDD Novel Attack: ps",
+      "name": "UNSW Attack: attack #13",
       "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.4518555771669604,
-      "alert_level": "LOW",
-      "alert_message": "Borderline Anomaly detected: Close monitoring required",
-      "correct": false
+      "predicted": "intrusion",
+      "confidence": 0.5133632064882225,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
     },
     {
-      "name": "KDD Novel Attack: snmpguess",
+      "name": "UNSW Attack: attack #14",
       "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.39937470635105143,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": false
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #15",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6265977216820202,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #16",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5617562519046502,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #17",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5173505556964444,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #18",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6115469840711368,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #19",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5490325797968036,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #20",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #21",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5236760722285494,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #22",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #23",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5674751415637277,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #24",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5452598221610251,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #25",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #26",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.505199925739971,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #27",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5438841486630316,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #28",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #29",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6271289217987477,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #30",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5969133542473176,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #31",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5977308649946722,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #32",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #33",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #34",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6032529387028503,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #35",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #36",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5580260818287552,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #37",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #38",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #39",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5305213281493633,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #40",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #41",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5371140331216836,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #42",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5470967622625983,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #43",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6429154604067956,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #44",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #45",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #46",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5219031429269672,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #47",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #48",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6331563581650296,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #49",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #50",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5440136706821302,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #51",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.5554795980263723,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #52",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #53",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #54",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6426377501836078,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #55",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #56",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.549002207507225,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #57",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #58",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6302243066124347,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #59",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.65,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack: attack #60",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6412522317315491,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
     }
   ]
 }

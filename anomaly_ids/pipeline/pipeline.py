@@ -111,7 +111,21 @@ class HybridIDSPipeline:
         # Extract normal traffic for unsupervised training
         X_normal_train = X_train_scaled[y_train == 0] 
         if verbose >= 1:
-            print(f"   Normal samples: {len(X_normal_train)}")
+            print(f"   Normal samples (full): {len(X_normal_train)}")
+
+        # Cap normal samples for unsupervised models.
+        # LOF is O(n^2) and training on millions of rows takes many hours.
+        # 100K normal samples captures the distribution well without the cost.
+        max_us = getattr(self.config, 'unsupervised_max_samples', None)
+        if max_us is not None and len(X_normal_train) > max_us:
+            rng = np.random.default_rng(42)
+            idx = rng.choice(len(X_normal_train), size=max_us, replace=False)
+            idx.sort()
+            X_normal_train_us = X_normal_train[idx]
+            if verbose >= 1:
+                print(f"   Normal samples (capped for unsupervised): {len(X_normal_train_us)}")
+        else:
+            X_normal_train_us = X_normal_train
         
         # 5. Autoencoder (if enabled)
         if self.config.use_autoencoder:
@@ -131,9 +145,9 @@ class HybridIDSPipeline:
             if X_val is not None and y_val is not None:
                 X_val_processed = self._transform_features(X_val) # Transforming raw validation data when the pipeline runs
                 X_normal_val = X_val_processed[y_val == 0]
-                self.autoencoder.fit(X_normal_train, X_normal_val, verbose=0) 
+                self.autoencoder.fit(X_normal_train_us, X_normal_val, verbose=0) 
             else:
-                self.autoencoder.fit(X_normal_train, verbose=0) # Only use raw normal training data
+                self.autoencoder.fit(X_normal_train_us, verbose=0) # Only use raw normal training data
             
             if verbose >= 1:
                 loss = self.autoencoder.get_last_train_loss() # The last recorded loss will be returned(the current run's loss)
@@ -151,7 +165,7 @@ class HybridIDSPipeline:
                 n_components=self.config.pca_n_components,
                 random_state=42
             )
-            self.pca.fit(X_normal_train)
+            self.pca.fit(X_normal_train_us)
             
             if verbose >= 1:
                 print(f"   PCA components: {self.pca.pca.n_components_}")
@@ -173,7 +187,7 @@ class HybridIDSPipeline:
                 contamination=self.config.iso_contamination,
                 max_features=self.config.iso_max_features
             )
-            iso_forest.fit(X_normal_train)
+            iso_forest.fit(X_normal_train_us)
             self.anomaly_detectors['isolation_forest'] = iso_forest
             detector_count += 1
         
@@ -184,7 +198,7 @@ class HybridIDSPipeline:
                 n_neighbors=self.config.lof_n_neighbors,
                 contamination=self.config.lof_contamination
             )
-            lof.fit(X_normal_train)
+            lof.fit(X_normal_train_us)
             self.anomaly_detectors['lof'] = lof
             detector_count += 1
         

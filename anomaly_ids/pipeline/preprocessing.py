@@ -17,7 +17,7 @@ class Preprocessor:
             max_categories: Max unique values to consider a column categorical (default: 50)
         """
         self.categorical_cols = categorical_cols  # Will be auto-detected if None
-        self.label_cols = label_cols or ["attack_class", "attack_class_category", "label"] # Either they will be obtained or will be set to the default KDD dataset labels
+        self.label_cols = label_cols or ["attack_class", "attack_class_category", "label", "attack"] # Common label column names across datasets (KDD: attack_class, UNSW: attack)
         self.max_categories = max_categories
         self.drop_cols = None
         self.training_columns = None
@@ -29,8 +29,12 @@ class Preprocessor:
         """
         # Backward compatibility: ensure label_cols exists.
         if not hasattr(self, 'label_cols'):
-            self.label_cols = ["attack_class", "attack_class_category", "label"]
-        
+            self.label_cols = ["attack_class", "attack_class_category", "label", "attack"]
+
+        # Normalize column names (strip whitespace) - fixes e.g. 'ct_src_ ltm' in UNSW-NB15
+        df = df.copy()
+        df.columns = df.columns.str.strip()
+
         # Auto-detect categorical columns if not provided
         if self.categorical_cols is None:
             # For KDD dataset only, the original hardcoded columns will be used for backward compatibility
@@ -60,7 +64,10 @@ class Preprocessor:
             Transformations defined in 'fit' function will be used here to apply on the dataset
         """
         df = df.copy()
-        
+
+        # Normalize column names (strip whitespace) - fixes e.g. 'ct_src_ ltm' in UNSW-NB15
+        df.columns = df.columns.str.strip()
+
         # Backward compatibility: ensure label_cols exists (for old saved models)
         if not hasattr(self, 'label_cols'):
             self.label_cols = ["attack_class", "attack_class_category", "label"]
@@ -94,11 +101,19 @@ class Preprocessor:
         return self.fit(df).transform(df)
 
 
-def drop_correlated_features(X, threshold = 0.95):
-    corr = X.corr().abs() # Correlation data(using absolute value)
-    upper = corr.where(np.triu(np.ones(corr.shape), k = 1).astype(bool)) # Creates a mask(copy) of the correlation matrix and shifts the main diagonal reference by 1(main diagonal values will always be 1). Then using corr.where(), we determine exact correlation at that spot(where we set 'True')
-    to_drop = [c for c in upper.columns if any(upper[c] > threshold)] # Drop one column out of every pair of columns which have correlation greater than 0.95
-    return X.drop(columns = to_drop), to_drop
+def drop_correlated_features(X, threshold=0.95, sample_size=50_000):
+    # Computing corr() on millions of rows is very slow (O(n * f^2)).
+    # Correlation structure stabilises well before 50K rows, so we sample
+    # to find which columns to drop, then apply the drop to the full dataset.
+    if len(X) > sample_size:
+        X_sample = X.sample(n=sample_size, random_state=42)
+    else:
+        X_sample = X
+
+    corr = X_sample.corr().abs() # Correlation data (using absolute value)
+    upper = corr.where(np.triu(np.ones(corr.shape), k=1).astype(bool)) # Upper triangle mask (k=1 shifts off the main diagonal so self-correlations of 1.0 are excluded)
+    to_drop = [c for c in upper.columns if any(upper[c] > threshold)] # Drop one column from every highly-correlated pair
+    return X.drop(columns=to_drop), to_drop
 
 # Scaling
 class ScalerWrapper:

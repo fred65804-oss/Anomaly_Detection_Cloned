@@ -155,8 +155,8 @@ async def predict_single(
     Returns prediction with confidence score
     """
     try:
-        # Convert to DataFrame
-        sample_dict = sample.model_dump()
+        # Convert to DataFrame (only include fields that were actually sent)
+        sample_dict = sample.to_dict()
         df = pd.DataFrame([sample_dict])
         
         # Get prediction
@@ -190,8 +190,8 @@ async def predict_batch(
     Returns list of predictions
     """
     try:
-        # Convert to DataFrame
-        samples_dicts = [sample.model_dump() for sample in request.samples]
+        # Convert to DataFrame (only include fields that were actually sent)
+        samples_dicts = [sample.to_dict() for sample in request.samples]
         df = pd.DataFrame(samples_dicts)
         
         # Get predictions

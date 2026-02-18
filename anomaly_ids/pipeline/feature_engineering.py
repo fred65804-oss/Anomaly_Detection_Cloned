@@ -13,7 +13,31 @@ def add_statistical_features(df):
     They will be skipped if the required columns are not present. This is done so that if any other dataset is passed in future, the code will be ready to adapt to it
     """
     df = df.copy()
+
+    # ── Normalise mixed-case / renamed UNSW-NB15 column names ─────────────────
+    # UNSW-NB15.csv uses capitalised names (Sload, Dload, Spkts, Dpkts, Sjit,
+    # Djit, Sintpkt, Dintpkt) and slightly different names (smeansz, res_bdy_len)
+    # compared to UNSW-NB15_Dataset2.csv (sload, dload, spkts, dpkts, sjit,
+    # djit, sinpkt, dinpkt, smean, response_body_len).
+    # We create lowercase aliases so all downstream checks use consistent names.
+    col_aliases = {
+        "Sload":       "sload",
+        "Dload":       "dload",
+        "Spkts":       "spkts",
+        "Dpkts":       "dpkts",
+        "Sjit":        "sjit",
+        "Djit":        "djit",
+        "Sintpkt":     "sinpkt",
+        "Dintpkt":     "dinpkt",
+        "smeansz":     "smean",
+        "dmeansz":     "dmean",
+        "res_bdy_len": "response_body_len",
+    }
+    for src, dst in col_aliases.items():
+        if src in df.columns and dst not in df.columns:
+            df[dst] = df[src]
     
+    # ── KDD features ──────────────────────────────────────────────────────────
     # Bytes ratio (only if both src_bytes and dst_bytes exist)
     if "src_bytes" in df.columns and "dst_bytes" in df.columns:
         df["bytes_ratio"] = df["src_bytes"] / (df["dst_bytes"] + 1)
@@ -26,7 +50,30 @@ def add_statistical_features(df):
     # Packet rate (only if count and duration exist)
     if "count" in df.columns and "duration" in df.columns:
         df["packet_rate"] = df["count"] / (df["duration"] + 1)
-    
+
+    # ── UNSW-NB15 features ────────────────────────────────────────────────────
+    # Bytes ratio (sbytes / dbytes)
+    if "sbytes" in df.columns and "dbytes" in df.columns:
+        df["bytes_ratio"] = df["sbytes"] / (df["dbytes"] + 1)
+        df["total_bytes"] = df["sbytes"] + df["dbytes"]
+
+    # Packet ratio (spkts / dpkts)
+    if "spkts" in df.columns and "dpkts" in df.columns:
+        df["pkt_ratio"] = df["spkts"] / (df["dpkts"] + 1)
+        df["total_pkts"] = df["spkts"] + df["dpkts"]
+
+    # Bytes per packet (total bytes / total packets)
+    if all(c in df.columns for c in ["sbytes", "dbytes", "spkts", "dpkts"]):
+        df["bytes_per_pkt"] = (df["sbytes"] + df["dbytes"]) / (df["spkts"] + df["dpkts"] + 1)
+
+    # Load asymmetry (sload vs dload)
+    if "sload" in df.columns and "dload" in df.columns:
+        df["load_asymmetry"] = abs(df["sload"] - df["dload"]) / (df["sload"] + df["dload"] + 1)
+
+    # Jitter asymmetry (sjit vs djit)
+    if "sjit" in df.columns and "djit" in df.columns:
+        df["jit_asymmetry"] = abs(df["sjit"] - df["djit"]) / (df["sjit"] + df["djit"] + 1)
+
     return df
 
 # Implementing additional features
@@ -44,6 +91,24 @@ def add_context_aware_features(df):
         DataFrame with additional features (if applicable)
     """
     df = df.copy()
+
+    # ── Normalise mixed-case / renamed UNSW-NB15 column names ─────────────────
+    col_aliases = {
+        "Sload":       "sload",
+        "Dload":       "dload",
+        "Spkts":       "spkts",
+        "Dpkts":       "dpkts",
+        "Sjit":        "sjit",
+        "Djit":        "djit",
+        "Sintpkt":     "sinpkt",
+        "Dintpkt":     "dinpkt",
+        "smeansz":     "smean",
+        "dmeansz":     "dmean",
+        "res_bdy_len": "response_body_len",
+    }
+    for src, dst in col_aliases.items():
+        if src in df.columns and dst not in df.columns:
+            df[dst] = df[src]
 
     # Bytes per connection (requires: src_bytes, dst_bytes, count)
     if all(col in df.columns for col in ["src_bytes", "dst_bytes", "count"]):
@@ -85,6 +150,27 @@ def add_context_aware_features(df):
                 (df["land"] == 0).astype(float) * 0.15
                                     )
         df["legitimacy_score"] = legitimacy_indicators
+
+    # ── UNSW-NB15 context-aware features ──────────────────────────────────────
+    # TCP handshake efficiency (synack + ackdat relative to tcprtt)
+    if all(col in df.columns for col in ["synack", "ackdat", "tcprtt"]):
+        df["handshake_efficiency"] = (df["synack"] + df["ackdat"]) / (df["tcprtt"] + 1)
+
+    # Connection density score (how many connections to same dest/src)
+    if all(col in df.columns for col in ["ct_dst_src_ltm", "ct_srv_dst"]):
+        df["connection_density"] = df["ct_dst_src_ltm"] * df["ct_srv_dst"]
+
+    # Duration-normalized byte rate (sbytes / dur)
+    if "sbytes" in df.columns and "dur" in df.columns:
+        df["src_byte_rate"] = df["sbytes"] / (df["dur"] + 1)
+
+    # Response efficiency (response_body_len relative to dbytes)
+    if "response_body_len" in df.columns and "dbytes" in df.columns:
+        df["response_efficiency"] = df["response_body_len"] / (df["dbytes"] + 1)
+
+    # TTL asymmetry (attacker often has different TTL than victim)
+    if "sttl" in df.columns and "dttl" in df.columns:
+        df["ttl_asymmetry"] = abs(df["sttl"] - df["dttl"])
 
     return df
 
