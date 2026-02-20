@@ -99,16 +99,18 @@ def optimize_supervised_weight(sup_probs_val, anomaly_scores_val, y_val,
     for sup_weight in np.arange(weight_min, weight_max + weight_step, weight_step):
         # Create ensemble with this weight
         ensemble = HybridEnsemble(supervised_weight=sup_weight, method=method)
-        hybrid_probs = ensemble.predict_proba(sup_probs_val, anomaly_scores_val)
+        hybrid_probs = ensemble.predict_proba(sup_probs_val, anomaly_scores_val) # Predictions made by the hybridensemble
         
         # Find best threshold for this weight
         for t in np.arange(threshold_min, threshold_max, threshold_step):
             preds = (hybrid_probs >= t).astype(int) # Mimicing OR gate logic
             
+            # For every weight and threshold combination, compute the corresponding metric(controlled by 'optimize_for' parameter in this function)
+            # This will be used for evaluating the current weight and threshold
             # Enforce minimum recall constraint
             rec = recall_score(y_val, preds)
             if rec < min_recall:
-                continue  # Skip configs that sacrifice too much recall
+                continue  # Skip configs/instances that sacrifice too much recall
             
             if optimize_for == 'f1':
                 score = f1_score(y_val, preds)
@@ -125,7 +127,7 @@ def optimize_supervised_weight(sup_probs_val, anomaly_scores_val, y_val,
                 best_threshold = t
     
     # If no configuration met the min_recall constraint, fall back to
-    # optimizing f1-score without the floor (safety net)
+    # optimizing f1-score without the floor (safety net, as balancing f1-score alone will balance precision and recall both)
     if best_score == 0:
         print("No config met min_recall constraint. Relaxing to recall-only optimization.")
         for sup_weight in np.arange(weight_min, weight_max + weight_step, weight_step):
@@ -140,3 +142,4 @@ def optimize_supervised_weight(sup_probs_val, anomaly_scores_val, y_val,
                     best_threshold = t
     
     return best_weight, best_threshold, best_score
+

@@ -12,7 +12,8 @@ A production-ready **Hybrid Intrusion Detection System** that combines supervise
 - **Comprehensive Evaluation**: Detailed metrics including novel attack analysis
 
 ## 📁 Project Structure
-
+## Before Reading, please make note of this => 
+##       THE DATASET FILE(preferably csv) SHOULD BE ONLY PRESENT IN FOLDER (training). Any other datasets can interfere with the detection of the dataset file
 ```
 anomaly_ids/
 ├── app/                      # FastAPI Application

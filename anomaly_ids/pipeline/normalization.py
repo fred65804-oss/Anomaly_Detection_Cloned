@@ -28,7 +28,8 @@ class ScoreNormalizer:
     def fit(self, scores_dict):
         """
         Fit normalizer on training scores
-        
+        Functions to be applied on the scores(Will be executed in 'transform' functions)
+
         Args:
             scores_dict: Dictionary of {detector_name: scores_array}
         """
@@ -58,10 +59,10 @@ class ScoreNormalizer:
         for name, scores in scores_dict.items():
             if name not in self.percentiles:
                 # Gracefully handle unseen detectors with fallback normalization
-                s_min = np.min(scores)
-                s_max = np.max(scores)
+                s_min = np.min(scores) # Minimum 
+                s_max = np.max(scores) # Maximum
                 normalized[name] = np.clip(
-                    (scores - s_min) / (s_max - s_min + 1e-10),
+                    (scores - s_min) / (s_max - s_min + 1e-10), # '1e-10' has been added to avoid zero division error, and in case all the scores are almost the same(min and max will almost be same => s_max - s_min can be 0)
                     0, 1
                 )
                 continue

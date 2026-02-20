@@ -1,6 +1,7 @@
 """
     This file uses feature engineering to induce columns into the dataframe passed
-    It also uses PCA to reduce components(number of features), by specifying variance(Default is 95%) 
+    It also uses PCA to reduce components(number of features), by specifying variance(Default is 95%)
+    Some column names have been hardcoded for a particular dataset for feature engineering purposes only 
 """
 from sklearn.decomposition import PCA
 

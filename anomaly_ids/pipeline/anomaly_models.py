@@ -26,15 +26,15 @@ class IsolationForestDetector:
             random_state: Random seed
             n_jobs: Parallel jobs
         """
-        self.model = IsolationForest(
+        self.model = IsolationForest(   # As soon as the object of this class is initialized, the model will also be loaded as well
             n_estimators=n_estimators,
             max_samples=max_samples,
-            contamination=contamination,
+            contamination=contamination, # How much anomaly data do I expect
             random_state=random_state,
             n_jobs=n_jobs,
             max_features=max_features
         )
-        self.fitted = False
+        self.fitted = False # Right now, the model is only initialized
     
     def fit(self, X):
         """
@@ -44,12 +44,12 @@ class IsolationForestDetector:
             X: Normal traffic samples (numpy array or DataFrame)
         """
         self.model.fit(X)
-        self.fitted = True
+        self.fitted = True # The model has now been fitted
         return self
     
     def score(self, X):
         """
-        Get anomaly scores (higher = more anomalous)
+        Get anomaly scores (higher[it means more negative score] = more anomalous)
         
         Args:
             X: Data to score
@@ -77,9 +77,9 @@ class LocalOutlierFactorDetector:
             contamination: Expected proportion of anomalies
             n_jobs: Parallel jobs
         """
-        self.model = LocalOutlierFactor(
+        self.model = LocalOutlierFactor(  # As soon as the object of this class is initialized, the model will also be loaded as well
             n_neighbors=n_neighbors,
-            contamination=contamination,
+            contamination=contamination, # How much anomalous data I am expecting
             novelty=True,  # Enable novelty detection mode
             n_jobs=n_jobs
         )

@@ -26,7 +26,7 @@ class SupervisedRF:
             random_state: Random seed
             n_jobs: Parallel jobs
         """
-        self.model = RandomForestClassifier(
+        self.model = RandomForestClassifier(       # As soon as the object of this class is created, the model instance will also be loaded at that time only
             n_estimators=n_estimators,
             max_depth=max_depth,
             min_samples_split=min_samples_split,
@@ -36,7 +36,7 @@ class SupervisedRF:
             n_jobs=n_jobs,
             random_state=random_state
         )
-        self.fitted = False
+        self.fitted = False # The model is not fitted yet
     
     def fit(self, X, y):
         """

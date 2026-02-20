@@ -48,7 +48,7 @@ def main():
     API_URL = f"http://localhost:{args.port}"
     
     # Load test cases
-    test_file = Path(__file__).parent / "test_samples_unsw_full.json"
+    test_file = Path(__file__).parent / "test_samples_unsw.json"
     with open(test_file, 'r') as f:
         data = json.load(f)
     

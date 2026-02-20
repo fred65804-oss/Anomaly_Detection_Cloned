@@ -71,7 +71,7 @@ app = FastAPI(
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure appropriately for production
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -82,11 +82,11 @@ async def startup_event():
     """Load model on startup"""
     try:
         pipeline = get_pipeline()
-        print(f"✓ Pipeline loaded successfully")
+        print(f" Pipeline loaded successfully")
         print(f"  Threshold: {pipeline.threshold_optimizer.best_threshold:.3f}")
         print(f"  Supervised weight: {pipeline.config.supervised_weight:.3f}")
     except Exception as e:
-        print(f"✗ Error loading pipeline: {e}")
+        print(f" Error loading pipeline: {e}")
         print("  API will start but predictions will fail until model is loaded")
 
 

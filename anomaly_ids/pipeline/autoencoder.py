@@ -24,11 +24,11 @@ class AutoencoderIDS:
         self.history = None
         self.weights_loaded = False  # Track if trained weights were loaded(Initially we will assume they were not)
 
-        self._build_model()
+        self._build_model() # This is done here, so that we can instantiate the model the moment an object of this class is created
 
     # Model Architecture
     def _build_model(self):
-        encoder_input = keras.Input(shape = (self.input_dim,))
+        encoder_input = keras.Input(shape = (self.input_dim,)) # Start with exactly the number of features in the dataset
 
         # Encoder
         # Suppressing the features till 32 (Model will start learning from here only, i.e at the end of encoder)
@@ -51,7 +51,7 @@ class AutoencoderIDS:
         self.autoencoder.compile(optimizer = "adam", loss = "mse")
 
         # Encoder-only Model
-        # Will be used only for returning the encoded features that are to be passed to the Supervised Model
+        # Will be used only for returning the encoded latent features that are to be passed to the Supervised Model
         self.encoder = keras.Model(encoder_input, encoded)
 
     # Training the model(Fit only Normal Data)
@@ -77,7 +77,7 @@ class AutoencoderIDS:
 
         return self
 
-    # Encoded Features (These will be used by the supervised model)
+    # Encoded Features (These will be given to the supervised model)
     def encode(self, X):
         return self.encoder.predict(X, verbose = 0)
 
