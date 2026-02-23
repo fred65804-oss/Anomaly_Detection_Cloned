@@ -909,3 +909,35 @@ Saving pipeline...
 ======================================================================
 2026-02-20 15:11:24 - training - INFO - TRAINING COMPLETE
 2026-02-20 15:11:24 - training - INFO - ======================================================================
+2026-02-23 10:05:01 - training - INFO - ======================================================================
+2026-02-23 10:05:01 - training - INFO - HYBRID IDS TRAINING
+2026-02-23 10:05:01 - training - INFO - ======================================================================
+2026-02-23 10:05:01 - training - INFO - 
+[1/5] Loading data...
+2026-02-23 10:05:13 - training - INFO -   Mode: Single file (auto-split 80/20)
+2026-02-23 10:05:13 - training - INFO -   Total samples: 2540047
+2026-02-23 10:05:13 - training - INFO -   Total columns: 42
+2026-02-23 10:05:16 - training - INFO -   Train samples: 2032037
+2026-02-23 10:05:16 - training - INFO -   Test samples: 508010
+2026-02-23 10:05:16 - training - INFO - 
+[2/5] Creating binary targets...
+2026-02-23 10:05:18 - training - INFO -   Using label column: 'label' (normal class: '0')
+2026-02-23 10:05:18 - training - INFO -   Train intrusions: 257104 (12.7%)
+2026-02-23 10:05:18 - training - INFO -   Test intrusions: 64179 (12.6%)
+2026-02-23 10:05:18 - training - INFO - Novel attacks in test: 0
+2026-02-23 10:05:18 - training - INFO - Novel attack types: []
+2026-02-23 10:05:18 - training - INFO - 
+[3/5] Preparing features...
+2026-02-23 10:05:18 - training - INFO - 
+[4/5] Creating train/validation split...
+2026-02-23 10:05:22 - training - INFO -   Train: 1625629
+2026-02-23 10:05:22 - training - INFO -   Val: 406408
+2026-02-23 10:05:22 - training - INFO -   Test: 508010
+2026-02-23 10:05:22 - training - INFO - 
+[5/5] Training pipeline...
+2026-02-23 10:09:50 - training - INFO - 
+Saving pipeline...
+2026-02-23 10:09:51 - training - INFO - 
+======================================================================
+2026-02-23 10:09:51 - training - INFO - TRAINING COMPLETE
+2026-02-23 10:09:51 - training - INFO - ======================================================================

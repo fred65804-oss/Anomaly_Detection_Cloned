@@ -9,9 +9,9 @@ from typing import List, Optional, Dict
 class NetworkTrafficInput(BaseModel):
     """
     Single network traffic sample input.
-    Supports both KDD Cup 1999 and UNSW-NB15 feature sets.
+    By default, it supports both KDD Cup 1999 and UNSW-NB15 feature sets.
     All fields are optional - send only the features your dataset has.
-    The pipeline will use whichever features are present.
+    The pipeline will adapt accordingly
     """
     # ── UNSW-NB15 features ────────────────────────────────────────────────────
     # Column names vary between UNSW releases:

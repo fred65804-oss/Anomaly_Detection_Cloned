@@ -14,7 +14,7 @@ from pipeline import HybridIDSPipeline, IDSConfig
 from utils import ModelManager, setup_logger
 
 
-def train_hybrid_ids(train_csv="UNSW-NB15_Test_File_20thFeb.csv", 
+def train_hybrid_ids(train_csv="UNSW-NB15.csv", 
                      test_csv=None,
                      artifacts_dir="artifacts",
                      config_dict=None,
