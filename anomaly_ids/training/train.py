@@ -4,6 +4,7 @@ Main training script for Hybrid IDS
 
 import sys
 import pandas as pd
+import joblib
 from pathlib import Path
 from sklearn.model_selection import train_test_split
 
@@ -172,6 +173,18 @@ def train_hybrid_ids(train_csv="UNSW-NB15.csv",
     # Fit pipeline
     pipeline.fit(X_train, y_train, X_val, y_val, verbose=verbose)
     
+    # Initialize explainer with 200 normal training samples
+    # Use the dynamically detected label_col and normal_label (not hardcoded 'label'/'0')
+    normal_mask = df_train[label_col] == normal_label
+    X_normal_background = df_train[normal_mask].sample(min(200, normal_mask.sum()), random_state=42)
+    # Drop ALL non-feature columns before passing to explainer
+    cols_to_drop = [c for c in [label_col, "is_intrusion"] if c in X_normal_background.columns]
+    pipeline.init_explainer(X_normal_background.drop(columns=cols_to_drop))
+
+    # Save background data (features only) for future API use
+    background_path = Path(artifacts_dir) / "latest" / "shap_background.joblib"
+    joblib.dump(X_normal_background.drop(columns=cols_to_drop), background_path)
+
     # 6. Save Pipeline
     logger.info("\nSaving pipeline...")
     model_manager = ModelManager(artifacts_dir)

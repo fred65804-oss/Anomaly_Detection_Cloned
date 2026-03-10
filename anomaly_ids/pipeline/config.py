@@ -18,6 +18,7 @@ class IDSConfig:
         self.anomaly_detectors = ['isolation_forest', 'lof']
         self.supervised_weight = 0.65  # RF is dominant: at weighted_avg, unsup (LOF/IF) can't outvote RF when it says normal
         self.ensemble_method = 'weighted_avg'
+        # ENABLING BELOW OPTION(SET TO 'TRUE') WILL RETRAIN THE ENTIRE MODEL(RECOMMENDED FOR NEWER DATASETS)
         self.optimize_weights = False  # Use manual optimal values instead of auto-optimization
         
         # Autoencoder parameters
@@ -32,24 +33,24 @@ class IDSConfig:
         self.iso_contamination = 0.15  # Match actual attack rate (~12.7%). 0.30 was too aggressive → high false positives
         self.iso_max_features = 0.7
         
-        self.lof_n_neighbors = 20          # Increased from 10: more neighbors = smoother, less noise-sensitive boundary
-        self.lof_contamination = 0.15  # Match actual attack rate (~12.7%). 0.30 was too aggressive → high false positives
+        self.lof_n_neighbors = 20          # More neighbors => smoother, less noise-sensitive boundary
+        self.lof_contamination = 0.15  # Match actual attack rate (was approximately 12.7%)
         self.lof_max_samples = 50_000    # LOF is O(n*k*log n) — its own cap separate from AE/IF
 
-        # Max rows used to train RF (encoding 2M rows through AE before RF is slow).
+        # Max rows used to train RF (In most cases, we will not consider the entire dataset, as some datasets can cross more than 1 million rows also)
         # For now, we will put a cap on rows fed to 500k
-        # Can be set to None to use the entire data
+        # Can be set to 'None' to use the entire data
         self.rf_max_samples = 500_000
 
         # Max rows fed to unsupervised detectors (IF, LOF, AE) during fit.
         # LOF is O(n^2) – training on millions of rows takes hours.
         # 200_000 gives better coverage of the normal distribution
-        # Set to None to disable the cap (use all data).
+        # Set to None to disable the cap (use all data)
         self.unsupervised_max_samples = 200_000
         
         # Supervised model parameters(Random Forest)
-        self.rf_n_estimators = 50          # Reduced from 100 (sufficient for large datasets)
-        self.rf_max_depth = 15             # Reduced from 20 (prevents overfitting + faster)
+        self.rf_n_estimators = 50          # Sufficient for large datasets
+        self.rf_max_depth = 15             # Prevents overfitting + faster
         self.rf_min_samples_split = 20
         self.rf_min_samples_leaf = 10
         self.rf_max_features = 'sqrt'
@@ -65,7 +66,7 @@ class IDSConfig:
         self.threshold_min = 0.2
         self.threshold_max = 0.8
         self.threshold_step = 0.01
-        self.default_threshold = 0.50  # Optimal threshold found through testing
+        self.default_threshold = 0.50  # Optimal threshold found through testing. Can train the entire pipeline again, looking for a better threshold. Generally done for new datasets.
 
         # Weight optimization
         self.weight_min = 0.1

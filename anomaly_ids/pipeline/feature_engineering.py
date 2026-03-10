@@ -3,6 +3,7 @@
     It also uses PCA to reduce components(number of features), by specifying variance(Default is 95%)
     Some column names have been hardcoded for a particular dataset for feature engineering purposes only 
 """
+import pandas as pd
 from sklearn.decomposition import PCA
 
 # Adding Statistical Features 
@@ -14,6 +15,30 @@ def add_statistical_features(df):
     They will be skipped if the required columns are not present. This is done so that if any other dataset is passed in future, the code will be ready to adapt to it
     """
     df = df.copy()
+
+    # Cast all potentially numeric columns to numeric dtype.
+    # The UNSW-NB15 dataset can load some columns as object/string (e.g. sbytes,
+    # dbytes) which causes TypeError on arithmetic. errors='ignore' leaves
+    # genuinely categorical columns (proto, state) untouched.
+    _numeric_candidates = [
+        "src_bytes", "dst_bytes", "srv_count", "count", "duration",
+        "sbytes", "dbytes", "spkts", "dpkts", "sload", "dload",
+        "Sload", "Dload", "Spkts", "Dpkts", "sjit", "djit", "Sjit", "Djit",
+        "sinpkt", "dinpkt", "Sintpkt", "Dintpkt", "smean", "dmean",
+        "smeansz", "dmeansz", "sttl", "dttl", "rate", "dur",
+        "tcprtt", "synack", "ackdat", "response_body_len", "res_bdy_len",
+        "same_srv_rate", "diff_srv_rate", "dst_host_count", "serror_rate",
+        "srv_serror_rate", "rerror_rate", "srv_rerror_rate", "logged_in",
+        "dst_host_same_srv_rate", "land", "ct_dst_src_ltm", "ct_srv_dst",
+    ]
+    for _col in _numeric_candidates:
+        if _col in df.columns:
+            df[_col] = pd.to_numeric(df[_col], errors='coerce')
+    # Fill any NaNs produced by coercion with 0 so downstream arithmetic
+    # and sklearn estimators (LOF, IsolationForest) never receive NaN values.
+    # Only operate on columns that actually exist in this DataFrame.
+    _present = [c for c in _numeric_candidates if c in df.columns]
+    df[_present] = df[_present].fillna(0)
 
     # ── Normalise mixed-case / renamed UNSW-NB15 column names ─────────────────
     # UNSW-NB15.csv uses capitalised names (Sload, Dload, Spkts, Dpkts, Sjit,

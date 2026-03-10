@@ -10,12 +10,19 @@ from pathlib import Path
 # API endpoint
 API_URL = "http://localhost:8000"
 
-def test_single_prediction(test_case):
-    """Test single prediction endpoint"""
-    response = requests.post(
-        f"{API_URL}/predict",
-        json=test_case["data"]
-    )
+def test_single_prediction(test_case, explain=True, top_k=5):
+    """Test single prediction endpoint (with SHAP explanation by default)"""
+    if explain:
+        response = requests.post(
+            f"{API_URL}/predict/explain",
+            params={"method": "shap", "top_k": top_k},
+            json=test_case["data"]
+        )
+    else:
+        response = requests.post(
+            f"{API_URL}/predict",
+            json=test_case["data"]
+        )
     
     if response.status_code == 200:
         result = response.json()
@@ -41,6 +48,12 @@ def main():
     import argparse
     parser = argparse.ArgumentParser(description="Test Hybrid IDS API")
     parser.add_argument("--port", type=int, default=8000, help="API Port")
+    parser.add_argument("--explain", action="store_true", default=True,
+                        help="Show SHAP feature contributions per prediction (default: True)")
+    parser.add_argument("--no-explain", dest="explain", action="store_false",
+                        help="Skip SHAP explanations for faster output")
+    parser.add_argument("--top-k", type=int, default=5,
+                        help="Number of top SHAP features to display (default: 5)")
     args = parser.parse_args()
     
     # Update global API URL
@@ -48,7 +61,7 @@ def main():
     API_URL = f"http://localhost:{args.port}"
     
     # Load test cases
-    test_file = Path(__file__).parent / "test_samples_unsw.json"
+    test_file = Path(__file__).parent / "test_samples_unsw_extra.json"
     with open(test_file, 'r') as f:
         data = json.load(f)
     
@@ -82,15 +95,21 @@ def main():
         print(f"  ERROR: {e}")
     
     # Test single predictions
-    print("\n[3] Testing Single Predictions...")
+    endpoint_used = "/predict/explain" if args.explain else "/predict"
+    print(f"\n[3] Testing Single Predictions (endpoint: {endpoint_used})...")
     print("-"*70)
-    
+
+    if args.explain:
+        print(f"  [SHAP explanations ON — top {args.top_k} features per prediction]")
+        print(f"  Note: Each prediction takes ~1-3s extra due to SHAP sampling.")
+        print(f"  Use --no-explain for faster output without SHAP.")
+
     results = []
     for i, test_case in enumerate(test_cases, 1):
         print(f"\nTest {i}: {test_case['name']}")
         print(f"  Expected: {test_case['expected']}")
         
-        result = test_single_prediction(test_case)
+        result = test_single_prediction(test_case, explain=args.explain, top_k=args.top_k)
         
         if "error" in result:
             print(f"  ERROR: {result}")
@@ -108,6 +127,14 @@ def main():
             print(f"  Prediction: {'INTRUSION' if is_intrusion else 'NORMAL'} {match}")
             print(f"  Confidence: {confidence:.4f}")
             print(f"  Alert Level: {alert_level} {alert_message}")
+
+            # Print SHAP feature contributions if available
+            shap_features = result.get('top_features_shap')
+            if shap_features:
+                print(f"  Top {len(shap_features)} SHAP Features:")
+                for feat in shap_features:
+                    #arrow = "↑" if feat['direction'] == 'toward_intrusion' else "↓"
+                    print(f"     {feat['feature']:<30} shap={feat['shap_value']:+.4f}  ({feat['direction']})")
 
             results.append({
                 "name": test_case['name'],
@@ -147,7 +174,7 @@ def main():
         alert_counts = {}
         for r in results:
             level = r.get('alert_level', 'N/A')
-            alert_counts[level] = alert_counts.get('level',0) + 1
+            alert_counts[level] = alert_counts.get(level, 0) + 1
 
         print("\n Alert Level Distribution:")
         alert_order = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'NORMAL', 'N/A']

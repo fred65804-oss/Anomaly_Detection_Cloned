@@ -242,6 +242,20 @@ class ModelManager:
         pipeline.threshold_optimizer = joblib.load(threshold_path)
         
         pipeline.fitted = True
+
+        # Reinitialize explainer from saved background data (SHAP/LIME can't be joblib-serialized)
+        background_path = version_dir / "shap_background.joblib"
+        if background_path.exists():
+            try:
+                X_background = joblib.load(background_path)
+                pipeline.init_explainer(X_background)
+                print(f"  [OK] Explainer initialized from background data ({len(X_background)} samples)")
+            except Exception as e:
+                print(f"  [WARN] Could not initialize explainer: {e}")
+                pipeline.explainer = None
+        else:
+            print(f"  [WARN] No shap_background.joblib found — explainer not available. Re-run training to generate it.")
+            pipeline.explainer = None
         
         print(f"[OK] Pipeline loaded successfully from {version_dir}")
         

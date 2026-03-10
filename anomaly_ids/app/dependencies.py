@@ -25,7 +25,9 @@ def get_model_manager():
 
 def get_pipeline():
     """
-    Get loaded pipeline (lazy loading)
+    Get loaded pipeline (lazy loading).
+    The explainer (SHAP/LIME) is automatically reinitialized from
+    shap_background.joblib saved during training.
     
     Returns:
         Loaded HybridIDSPipeline

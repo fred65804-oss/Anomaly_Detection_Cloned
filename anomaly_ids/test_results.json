@@ -1,724 +1,454 @@
 {
-  "accuracy": 97.5,
-  "correct": 78,
-  "total": 80,
+  "accuracy": 78.0,
+  "correct": 39,
+  "total": 50,
   "results": [
     {
-      "name": "UNSW Normal Traffic #1",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.12079217815759474,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #2",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.019198501563429365,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #3",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.01785656154692822,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #4",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.041824964349497756,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #5",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.10982723019383443,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #6",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.032447538552102494,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #7",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.02928373853460899,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #8",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.028331083727300244,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #9",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.029964196582538682,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #10",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.2097432164296295,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #11",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.07544021468461203,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #12",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.01111303193950695,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #13",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.11666803497594931,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #14",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.11669989003515398,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #15",
+      "name": "UNSW Normal \u00e2\u20ac\u201d HTTP web browsing",
       "expected": "normal",
       "predicted": "intrusion",
-      "confidence": 0.7125993769148955,
+      "confidence": 0.9997199662526722,
+      "alert_level": "CRITICAL",
+      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d DNS query small",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.12488161207543437,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d FTP data transfer large",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.2279508082201136,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d FTP control login",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.117858091997645,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP short interactive session",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.023042510934774423,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d UDP NTP traffic",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.1946157717997177,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP long-lived HTTPS session",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.6052887864055102,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d ARP broadcast",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.2828274524896183,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP bulk download",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.18620528671862613,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d DNS multi-packet exchange",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.034223254238897896,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP SYN then RST (quick reset)",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.7386439562843091,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": false
     },
     {
-      "name": "UNSW Normal Traffic #16",
+      "name": "UNSW Normal \u00e2\u20ac\u201d UDP DHCP handshake",
       "expected": "normal",
       "predicted": "normal",
-      "confidence": 0.06352792362986287,
+      "confidence": 0.23146486437368474,
       "alert_level": "NORMAL",
       "alert_message": "No intrusion detected - Normal Traffic",
       "correct": true
     },
     {
-      "name": "UNSW Normal Traffic #17",
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP medium HTTP response",
       "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.016594332634947508,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #18",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.11722489352336918,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #19",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.24967415133521023,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Normal Traffic #20",
-      "expected": "normal",
-      "predicted": "normal",
-      "confidence": 0.11666803621114923,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #1",
-      "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.808378179487952,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #2",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8094547973314529,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #3",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8546902339625387,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #4",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8677069736585733,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #5",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7453288391021164,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #6",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7571992299467707,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #7",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8680368124929557,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #8",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8719504264672613,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #9",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8680624286171881,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #10",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8709900955129884,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #11",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8016658743519023,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #12",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7915230435512034,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #13",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7749165325212307,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #14",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8355443153567705,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #15",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7147060735456954,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #16",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.784303671297494,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #17",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7443327695643885,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #18",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7434215951645389,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #19",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7462371225206987,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #20",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8668118539684304,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #21",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7573529301262272,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #22",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8630335432448774,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #23",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8180216445024213,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #24",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.787171638777928,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #25",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8815009850416247,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #26",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7456543031510909,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #27",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8203591532558611,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #28",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8257993380784912,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #29",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7773143148638465,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #30",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7572242154570529,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #31",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7558768340858423,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #32",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8674713503595166,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #33",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8680631959790117,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #34",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7481179047291542,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #35",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8640291698948431,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #36",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8374239266908847,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #37",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8617199892290851,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #38",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.863259550369437,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #39",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7471102256279205,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #40",
-      "expected": "intrusion",
-      "predicted": "normal",
-      "confidence": 0.295143055150502,
-      "alert_level": "NORMAL",
-      "alert_message": "No intrusion detected - Normal Traffic",
+      "confidence": 0.9984751181481368,
+      "alert_level": "CRITICAL",
+      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
       "correct": false
     },
     {
-      "name": "UNSW Attack: attack #41",
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP email SMTP",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.06380038392562555,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP incomplete SYN (INT state)",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.17755638866153878,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP moderate bidirectional flow",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.012001648377216186,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d UDP DNS with short TTL response",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.16533352052690203,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP streaming large payload",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.965850526368609,
+      "alert_level": "CRITICAL",
+      "alert_message": "Critical threat detected with very high confidence - Immediate action required",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP SSH session",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.7931888582335501,
+      "alert_level": "HIGH",
+      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d UDP SNMP query",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.2101829819157976,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP small balanced exchange",
+      "expected": "normal",
+      "predicted": "normal",
+      "confidence": 0.031213144409663017,
+      "alert_level": "NORMAL",
+      "alert_message": "No intrusion detected - Normal Traffic",
+      "correct": true
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d UDP multicast heartbeat",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.5249211589085352,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP API call short JSON",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.8421624935940175,
+      "alert_level": "HIGH",
+      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP IMAP email retrieval",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.5181904055418562,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP DNS over TCP (large response)",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.7256023164871471,
+      "alert_level": "HIGH",
+      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
+      "correct": false
+    },
+    {
+      "name": "UNSW Normal \u00e2\u20ac\u201d TCP low-rate keep-alive",
+      "expected": "normal",
+      "predicted": "intrusion",
+      "confidence": 0.6011977505053119,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": false
+    },
+    {
+      "name": "UNSW Attack \u00e2\u20ac\u201d DoS UDP flood high rate",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.7569745236580867,
+      "confidence": 0.729492067180489,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #42",
+      "name": "UNSW Attack \u00e2\u20ac\u201d DoS TCP SYN flood",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8044252760912636,
+      "confidence": 0.8759026573316431,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #43",
+      "name": "UNSW Attack \u00e2\u20ac\u201d DoS HTTP GET flood",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8595916699450272,
+      "confidence": 0.7604935309246005,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #44",
+      "name": "UNSW Attack \u00e2\u20ac\u201d DoS large UDP probe spray",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.7228711450709034,
+      "confidence": 0.8456343240082792,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #45",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Reconnaissance port scan TCP",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8677069736585734,
+      "confidence": 0.6916681286713534,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack \u00e2\u20ac\u201d Reconnaissance UDP port scan",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.6951500647080859,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack \u00e2\u20ac\u201d Exploit suspicious FTP data exfil",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.773980324728998,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #46",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Backdoor unusual protocol high TTL",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.728528885338464,
+      "confidence": 0.7768121030330267,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #47",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Backdoor persistent low-bandwidth C2",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8545070268287519,
+      "confidence": 0.6224428134285818,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack \u00e2\u20ac\u201d Fuzz random proto spray",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.8382745958712182,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #48",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Fuzz malformed igmp packet",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8132802864916433,
+      "confidence": 0.7320515638132112,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #49",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Exploit HTTP with unusual response body",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8692641683400442,
+      "confidence": 0.7449617609328038,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #50",
+      "name": "UNSW Attack \u00e2\u20ac\u201d DoS DNS amplification very high Sload",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.7467132746201365,
+      "confidence": 0.6877884351299706,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack \u00e2\u20ac\u201d Backdoor reverse shell over HTTP",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.8424791377324012,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #51",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Exploit wb-exp unknown protocol",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8122658073543801,
+      "confidence": 0.7413848464599978,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #52",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Worms same source/dest IP ports",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8786943042290731,
+      "confidence": 0.6330486842224421,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack \u00e2\u20ac\u201d Generic exploit leaf protocol",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.7208199052844483,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #53",
+      "name": "UNSW Attack \u00e2\u20ac\u201d DoS UDP with rapid inter-packet time",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.863829021058341,
+      "confidence": 0.8260599534747445,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #54",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Exploit FTP login brute-force",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8404587168883709,
+      "confidence": 0.7414799559256754,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #55",
+      "name": "UNSW Attack \u00e2\u20ac\u201d DoS ax.25 exotic protocol flood",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8543981567637478,
+      "confidence": 0.8462387595313468,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #56",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Exploit TCP rapid RST scanning",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8077070821718286,
+      "confidence": 0.6955011409000744,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
+      "correct": true
+    },
+    {
+      "name": "UNSW Attack \u00e2\u20ac\u201d Backdoor wb-mon protocol beacon",
+      "expected": "intrusion",
+      "predicted": "intrusion",
+      "confidence": 0.7522989411960765,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #57",
+      "name": "UNSW Attack \u00e2\u20ac\u201d DoS DNS ultra-high Sload burst",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.8611716101197451,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
+      "confidence": 0.5980902181618608,
+      "alert_level": "MEDIUM",
+      "alert_message": "Suspicious activity detected - Action recommended",
       "correct": true
     },
     {
-      "name": "UNSW Attack: attack #58",
+      "name": "UNSW Attack \u00e2\u20ac\u201d Reconnaissance zero duration probe",
       "expected": "intrusion",
       "predicted": "intrusion",
-      "confidence": 0.7624752315448966,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #59",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.8640292120527117,
-      "alert_level": "HIGH",
-      "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
-      "correct": true
-    },
-    {
-      "name": "UNSW Attack: attack #60",
-      "expected": "intrusion",
-      "predicted": "intrusion",
-      "confidence": 0.7762174801464168,
+      "confidence": 0.7221682966019143,
       "alert_level": "HIGH",
       "alert_message": "Intrusion detected with high confidence rate: Proceed with caution",
       "correct": true

@@ -234,6 +234,17 @@ class BatchPredictionResponse(BaseModel):
             }
         }
 
+class FeatureContribution(BaseModel):
+    feature: str
+    shap_value: Optional[float] = None
+    weight: Optional[float] = None
+    direction: str # 'toward_intrusion' or 'toward_normal'
+
+class ExplainedPredictionOutput(PredictionOutput): # Extending the outputs returned by 'Prediction Output Class
+    top_features_shap: Optional[List[FeatureContribution]]
+    top_features_lime: Optional[List[FeatureContribution]]
+    explanation_method: str = "shap" # Default is SHAP explanation
+    base_value: Optional[float] = None # Baseline used in SHAP
 
 class ModelInfo(BaseModel):
     """Model metadata"""
@@ -275,3 +286,46 @@ class HealthResponse(BaseModel):
                 "version": "latest"
             }
         }
+
+
+# ── Test-runner schemas ───────────────────────────────────────────────────────
+
+class TestCase(BaseModel):
+    """A single labelled test case as stored in a test JSON file"""
+    name: str = Field(..., description="Human-readable name for the test case")
+    expected: str = Field(..., description="Expected outcome: 'normal' or 'intrusion'")
+    data: Dict = Field(..., description="Feature dictionary (same shape as NetworkTrafficInput)")
+
+
+class SingleTestResult(BaseModel):
+    """Result for one test case"""
+    name: str
+    expected: str
+    predicted: str
+    correct: bool
+    confidence: float
+    alert_level: str
+    alert_message: str
+    top_features_shap: Optional[List[FeatureContribution]] = None
+
+
+class AlertLevelCount(BaseModel):
+    level: str
+    count: int
+
+
+class BatchSummary(BaseModel):
+    """Summary from the batch prediction pass"""
+    total: int
+    intrusions_detected: int
+    normal_count: int
+
+
+class TestRunResponse(BaseModel):
+    """Full response returned by POST /test/run"""
+    accuracy: float = Field(..., description="Percentage of correct predictions (0-100)")
+    correct: int
+    total: int
+    alert_distribution: List[AlertLevelCount] = Field(..., description="Count per alert level")
+    batch_summary: BatchSummary
+    results: List[SingleTestResult]

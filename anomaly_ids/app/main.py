@@ -3,6 +3,7 @@ FastAPI Application for Hybrid IDS
 """
 
 import sys
+import json
 import pandas as pd
 from pathlib import Path
 from fastapi import FastAPI, HTTPException, Depends
@@ -17,7 +18,11 @@ from app.schemas import (
     BatchPredictionRequest,
     BatchPredictionResponse,
     ModelInfo,
-    HealthResponse
+    HealthResponse,
+    TestRunResponse,
+    SingleTestResult,
+    BatchSummary,
+    AlertLevelCount,
 )
 from app.dependencies import get_pipeline, reload_pipeline
 
@@ -178,6 +183,49 @@ async def predict_single(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")
 
+# Addition of SHAP Values
+from app.schemas import ExplainedPredictionOutput
+@app.post("/predict/explain", response_model = ExplainedPredictionOutput, tags = ["Prediction"])
+async def predict_with_explanation(
+    sample: NetworkTrafficInput,
+    method: str = "shap", # By default, compute SHAP values only
+    top_k: int = 10, # How many top SHAP/LIME values we want
+    pipeline = Depends(get_pipeline)
+):
+    """
+        This function will predict as well as explain why this decision was made
+        Using SHAP/LIME, we will display what features caused this prediction to happen
+        Compared to endpoint '/predict', this will be a bit slower per prediction
+    """
+    df = pd.DataFrame([sample.to_dict()])
+    prob = pipeline.predict_proba(df)[0] # Predicted probabilities of class 0(normal)
+    is_intrusion = pipeline.predict(df)[0] # Predictions of class 0(normal)
+    alert_level, alert_message = determine_alert_level(float(prob), bool(is_intrusion))
+
+    explanation = pipeline.explain_prediction(df, method = method, top_k = top_k)
+
+    # When method='shap' or 'lime', explain_prediction returns a list directly.
+    # When method='both', it returns {'shap': [...], 'lime': [...]}.
+    if method == 'both':
+        shap_result = explanation.get('shap')
+        lime_result = explanation.get('lime')
+    elif method == 'shap':
+        shap_result = explanation
+        lime_result = None
+    else:  # lime
+        shap_result = None
+        lime_result = explanation
+
+    return ExplainedPredictionOutput(
+        is_intrusion = bool(is_intrusion),
+        confidence = float(prob),
+        intrusion_probability = float(prob),
+        alert_level = alert_level,
+        alert_message = alert_message,
+        top_features_shap = shap_result,
+        top_features_lime = lime_result,
+        explanation_method = method
+    )
 
 @app.post("/predict/batch", response_model=BatchPredictionResponse, tags=["Prediction"])
 async def predict_batch(
@@ -242,6 +290,137 @@ async def reload_model(version: str = "latest"):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error reloading model: {str(e)}")
+
+
+# ── Test-runner endpoint ──────────────────────────────────────────────────────
+
+# Directory that holds all test JSON files (same folder as this script's parent)
+_TEST_FILES_DIR = Path(__file__).parent.parent
+
+# Map of short names → filenames so the docs dropdown is readable
+_AVAILABLE_TEST_FILES = {
+    "unsw_extra": "test_samples_unsw_extra.json",
+    "unsw": "test_samples_unsw.json",
+    "unsw_full": "test_samples_unsw_full.json",
+    "default": "test_samples.json",
+}
+
+
+@app.get("/test/run", response_model=TestRunResponse, tags=["Testing"])
+async def run_tests(
+    file: str = "unsw_extra",
+    explain: bool = False,
+    top_k: int = 5,
+    pipeline=Depends(get_pipeline)
+):
+    """
+    Run the full test suite from a pre-built JSON test file — no pasting required.
+
+    Just click **Try it out → Execute** on the docs page and results come back
+    automatically.
+
+    **Query parameters**
+
+    | Parameter | Default | Description |
+    |-----------|---------|-------------|
+    | `file` | `unsw_extra` | Which test file to load. Choices: `unsw_extra`, `unsw`, `unsw_full`, `default` |
+    | `explain` | `false` | Include SHAP feature contributions per prediction (slower ~1-3 s/case) |
+    | `top_k` | `5` | Number of top SHAP features to return (only used when `explain=true`) |
+
+    **What it does (mirrors test_api.py)**
+    1. Loads `test_cases` from the chosen JSON file automatically.
+    2. Runs each case through single prediction (+ SHAP if `explain=true`).
+    3. Runs all cases through the batch endpoint for aggregate counts.
+    4. Returns accuracy, alert-level distribution, batch summary, and per-case pass/fail.
+    """
+    try:
+        # ── Resolve test file ─────────────────────────────────────────────────
+        filename = _AVAILABLE_TEST_FILES.get(file)
+        if filename is None:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Unknown test file '{file}'. Choose from: {list(_AVAILABLE_TEST_FILES.keys())}"
+            )
+        test_file_path = _TEST_FILES_DIR / filename
+        if not test_file_path.exists():
+            raise HTTPException(
+                status_code=404,
+                detail=f"Test file not found on disk: {test_file_path}"
+            )
+
+        with open(test_file_path, "r") as f:
+            raw = json.load(f)
+        test_cases = raw["test_cases"]  # list of {name, expected, data}
+
+        # ── 1. Per-case single predictions ───────────────────────────────────
+        results: list[SingleTestResult] = []
+
+        for tc in test_cases:
+            df = pd.DataFrame([tc["data"]])
+
+            if explain:
+                explanation = pipeline.explain_prediction(df, method="shap", top_k=top_k)
+                prob = pipeline.predict_proba(df)[0]
+                is_intrusion = bool(pipeline.predict(df)[0])
+                shap_features = explanation
+            else:
+                prob = pipeline.predict_proba(df)[0]
+                is_intrusion = bool(pipeline.predict(df)[0])
+                shap_features = None
+
+            alert_level, alert_message = determine_alert_level(float(prob), is_intrusion)
+            predicted_label = "intrusion" if is_intrusion else "normal"
+            expected_intrusion = (tc["expected"].strip().lower() == "intrusion")
+
+            results.append(SingleTestResult(
+                name=tc["name"],
+                expected=tc["expected"],
+                predicted=predicted_label,
+                correct=(is_intrusion == expected_intrusion),
+                confidence=float(prob),
+                alert_level=alert_level,
+                alert_message=alert_message,
+                top_features_shap=shap_features if explain else None,
+            ))
+
+        # ── 2. Batch pass ─────────────────────────────────────────────────────
+        batch_df = pd.DataFrame([tc["data"] for tc in test_cases])
+        batch_preds = pipeline.predict(batch_df)
+        intrusions_detected = int(batch_preds.sum())
+        total = len(test_cases)
+
+        # ── 3. Accuracy + alert distribution ─────────────────────────────────
+        correct = sum(1 for r in results if r.correct)
+        accuracy = (correct / total * 100) if total > 0 else 0.0
+
+        alert_order = ["CRITICAL", "HIGH", "MEDIUM", "LOW", "NORMAL"]
+        alert_counts: dict[str, int] = {}
+        for r in results:
+            alert_counts[r.alert_level] = alert_counts.get(r.alert_level, 0) + 1
+
+        alert_distribution = [
+            AlertLevelCount(level=lvl, count=alert_counts[lvl])
+            for lvl in alert_order
+            if lvl in alert_counts
+        ]
+
+        return TestRunResponse(
+            accuracy=round(accuracy, 2),
+            correct=correct,
+            total=total,
+            alert_distribution=alert_distribution,
+            batch_summary=BatchSummary(
+                total=total,
+                intrusions_detected=intrusions_detected,
+                normal_count=total - intrusions_detected,
+            ),
+            results=results,
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Test run error: {str(e)}")
 
 
 if __name__ == "__main__":

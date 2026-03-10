@@ -350,6 +350,9 @@ class HybridIDSPipeline:
         X_processed = add_statistical_features(X_processed)
         X_processed = add_context_aware_features(X_processed)
         X_processed = X_processed.drop(columns=self.correlated_features, errors='ignore')
+        # Safety: fill any remaining NaNs (e.g. from engineered features on
+        # edge-case inputs) with 0 before passing to sklearn estimators.
+        X_processed = X_processed.fillna(0)
         X_processed = X_processed.astype('float32')
         X_scaled = self.scaler.transform(X_processed) # Only validation data is passed
         return X_scaled
@@ -384,6 +387,72 @@ class HybridIDSPipeline:
         
         return scores
     
+    # Function to initialize IDSExplainer
+    def init_explainer(self, X_background):
+        """
+            Initialize the explainer with background data
+            This will be called after training, using a sample of normal training data
+
+            Args:
+                X_background: 100 to 200 rows of normal traffic (this will be a dataframe)
+        """
+        from utils.explainer import IDSExplainer
+        # Making the data pass through transformation
+        x_bg_transformed = self._transform_features(X_background)
+        # Initializing Explainer object
+        self.explainer = IDSExplainer(
+            pipeline = self,
+            feature_names = self.feature_names,
+            X_train_background = x_bg_transformed
+        )
+
+    # SHAP/LIME Explanations
+    def explain_prediction(self, X, method = 'shap', top_k = 10):
+        """
+            Explain why a prediction was made by black-box model(s)
+
+            Args:
+                X: Single(1 row) sample dataframe (raw, pre-transform)
+                method: 'shap', 'lime', or 'both'
+                top_k: Number of top features to return
+
+            Returns:
+                A Dictionary with feature importances   
+        """
+        if not hasattr(self, 'explainer') or self.explainer is None:
+            raise ValueError("Explainer not initialized. Call init_explainer() first")
+
+        # Transform X into the same scaled numeric space that SHAP's background
+        # data lives in — SHAP must perturb in that space, not the raw string space.
+        X_scaled = self._transform_features(X)
+
+        if method == 'shap':
+            return self.explainer.explain_shap(X_scaled, top_k)
+
+        elif method == 'lime':
+            return self.explainer.explain_lime(X_scaled, top_k)
+
+        elif method == 'both':
+            return {
+                'shap': self.explainer.explain_shap(X_scaled, top_k),
+                'lime': self.explainer.explain_lime(X_scaled, top_k)
+            }
+
+    def _predict_proba_transformed(self, X_scaled):
+        """
+        Run the scoring pipeline on an already-transformed (scaled) numpy array.
+        Used by IDSExplainer._predict_fn so SHAP/LIME perturbations never pass
+        through _transform_features a second time.
+
+        Returns:
+            np.ndarray of shape (n, 2): [P(normal), P(intrusion)] per row
+        """
+        sup_probs = self._get_supervised_probs(X_scaled)
+        anomaly_scores = self._get_anomaly_scores(X_scaled)
+        anomaly_scores_norm = self.normalizer.transform(anomaly_scores)
+        hybrid_probs = self.ensemble.predict_proba(sup_probs, anomaly_scores_norm)
+        return np.column_stack([1 - hybrid_probs, hybrid_probs])
+
     def predict_proba(self, X):
         """
         Predict intrusion probabilities
