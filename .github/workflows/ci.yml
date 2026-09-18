@@ -28,4 +28,4 @@ jobs:
               run: pip install -r anomaly_ids/requirements.txt
               
             - name: Run tests
-              run: pytest
+              run: pytest anomaly_ids/tests
