@@ -1,0 +1,31 @@
+# Write .github/workflows/ci.yml — checkout, setup-python (3.11), install from anomaly_ids/requirements.txt, run pytest. Trigger on push and pull requests.
+# Push it to main. Get a green run. Expect it not to be green first time — the subfolder is a trap, and the tests may need things a bare runner doesn't have.
+# Branch, make a small change, push it.
+# Open a PR, watch the checks, merge.
+
+name: anomaly workflow
+
+on:
+    workflow_dispatch:
+    push:
+        branches: [main]
+    pull_request:
+
+jobs:
+    launch:
+        runs-on: python
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Setup Python 3.11
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.11'
+
+            - name: Install Dependencies
+              run: pip install -r anomaly_ids/requirements.txt
+              
+            - name: Run tests
+              run: pytest
