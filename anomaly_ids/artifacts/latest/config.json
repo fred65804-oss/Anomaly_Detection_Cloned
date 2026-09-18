@@ -5,9 +5,9 @@
     "isolation_forest",
     "lof"
   ],
-  "supervised_weight": 0.65,
+  "supervised_weight": 0.6500000000000001,
   "ensemble_method": "weighted_avg",
-  "optimize_weights": false,
+  "optimize_weights": true,
   "ae_encoding_dim": 32,
   "ae_epochs": 10,
   "ae_batch_size": 256,
