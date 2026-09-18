@@ -263,22 +263,59 @@ class HybridIDSPipeline:
         if X_val is not None and y_val is not None and self.config.optimize_weights:
             if verbose >= 1:
                 print("[9/10] Optimizing weights and threshold...")
-            
-            # Transform validation data
-            X_val_processed = self._transform_features(X_val) # Transforming the validation data within the pipeline only
-            
-            # Get scores on validation
-            sup_probs_val = self._get_supervised_probs(X_val_processed)
-            anomaly_scores_val = self._get_anomaly_scores(X_val_processed)
-            
-            # Normalize scores
+
+            # ── Fix for Issue 2: Split validation in half ─────────────────────
+            # The normalizer learns p5/p95 percentiles from data.
+            # If we fit it AND grid-search the threshold on the SAME data, the
+            # threshold is tuned on already-perfectly-normalised scores → optimistic
+            # (leaked) metrics. Solution: fit normalizer on val_norm_half, then
+            # optimize threshold on the separate val_opt_half.
+            y_val_arr = y_val.values if hasattr(y_val, 'values') else np.array(y_val)
+            n_val = len(y_val_arr)
+            rng_val = np.random.default_rng(55)
+            # Stratified split: keep class ratio in both halves
+            normal_val_idx  = np.where(y_val_arr == 0)[0]
+            attack_val_idx  = np.where(y_val_arr == 1)[0]
+            rng_val.shuffle(normal_val_idx)
+            rng_val.shuffle(attack_val_idx)
+            # First half of each class → normalizer fitting
+            norm_half_idx = np.sort(np.concatenate([
+                normal_val_idx[:len(normal_val_idx) // 2],
+                attack_val_idx[:len(attack_val_idx) // 2]
+            ]))
+            # Second half of each class → threshold optimisation
+            opt_half_idx = np.sort(np.concatenate([
+                normal_val_idx[len(normal_val_idx) // 2:],
+                attack_val_idx[len(attack_val_idx) // 2:]
+            ]))
+
+            # Convert pandas index → positional if needed
+            if hasattr(X_val, 'iloc'):
+                X_val_norm_half = X_val.iloc[norm_half_idx]
+                X_val_opt_half  = X_val.iloc[opt_half_idx]
+            else:
+                X_val_norm_half = X_val[norm_half_idx]
+                X_val_opt_half  = X_val[opt_half_idx]
+            y_val_opt_half = y_val_arr[opt_half_idx]
+
+            if verbose >= 1:
+                print(f"   Val split → normalizer: {len(norm_half_idx)} rows | threshold search: {len(opt_half_idx)} rows")
+
+            # Step A: Fit normalizer on the FIRST half only
+            X_val_norm_half_proc = self._transform_features(X_val_norm_half)
+            anomaly_scores_norm_half = self._get_anomaly_scores(X_val_norm_half_proc)
             # Another function has been implemented in the same class(ScoreNormalizer class), that combines the approach of fit and transform functions
-            self.normalizer.fit(anomaly_scores_val)
+            self.normalizer.fit(anomaly_scores_norm_half)
+
+            # Step B: Score the SECOND half and normalize using the fitted normalizer
+            X_val_opt_half_proc = self._transform_features(X_val_opt_half)
+            sup_probs_val       = self._get_supervised_probs(X_val_opt_half_proc)
+            anomaly_scores_val  = self._get_anomaly_scores(X_val_opt_half_proc)
             anomaly_scores_val_norm = self.normalizer.transform(anomaly_scores_val)
-            
-            # Optimize using F1 score with a recall floor
+
+            # Optimize using F1 score with a recall floor on the SECOND half
             best_weight, best_threshold, best_score = optimize_supervised_weight(
-                sup_probs_val, anomaly_scores_val_norm, y_val,
+                sup_probs_val, anomaly_scores_val_norm, y_val_opt_half,
                 weight_min=self.config.weight_min,
                 weight_max=self.config.weight_max,
                 weight_step=self.config.weight_step,

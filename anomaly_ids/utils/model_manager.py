@@ -67,7 +67,7 @@ class ModelManager:
         
         # Save autoencoder if used
         if pipeline.autoencoder is not None:
-            # Save weights only (more portable across TF/Keras versions)
+            # Save weights only, as this will increase portability across TF/Keras versions
             weights_path = version_dir / "autoencoder.weights.h5"
             pipeline.autoencoder.autoencoder.save_weights(weights_path)
             print(f"  [OK] Autoencoder weights saved")
