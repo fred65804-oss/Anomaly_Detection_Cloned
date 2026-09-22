@@ -43,4 +43,4 @@ jobs:
             run: pip install ruff
 
           - name: Start linting
-            run: ruff check --select E9, F63, F7, F82 .
+            run: ruff check --select E9,F63,F7,F82 .
