@@ -12,7 +12,7 @@ on:
     pull_request:
 
 jobs:
-    launch:
+    test:
         runs-on: ubuntu-latest
 
         steps:
@@ -27,5 +27,20 @@ jobs:
             - name: Install Dependencies
               run: pip install -r anomaly_ids/requirements.txt
               
-            - name: Run tests
-              run: pytest anomaly_ids/tests
+    linting:
+        runs-on: ubuntu-latest
+        
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v4  
+ 
+          - name: Setup Python
+            uses: actions/setup-python@v5
+            with:
+              python-version: '3.11'
+
+          - name: Install Ruff
+            run: pip install ruff
+
+          - name: Start linting
+            run: ruff check --select E9, F63, F7, F82 .
